@@ -4,3 +4,11 @@
   background-color: black;
   color: rgb(190, 179, 179);
 }
+
+button {
+  border: 2px solid red;
+  width: 200px;
+  height: 30px;
+  color: white;
+  background-color: black;
+}
