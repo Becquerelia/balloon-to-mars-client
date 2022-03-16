@@ -1,14 +1,39 @@
 .App {
   text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: x-large;
   min-height: 100vh;
   background-color: black;
   color: rgb(190, 179, 179);
 }
 
+a {
+  text-decoration: none;
+}
+
 button {
-  border: 2px solid red;
-  width: 200px;
-  height: 30px;
+  border: 2px solid rgba(20, 17, 207, 0.904);
+  width: 15rem;
+  height: 8rem;
+  color: white;
+  background-color: black;
+}
+
+#btn-home {
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+}
+
+#btn-signup {
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+
+.nav-active {
+  background-color: rgb(36, 35, 35);
+}
+
+.navbar-dark {
   color: white;
   background-color: black;
 }
