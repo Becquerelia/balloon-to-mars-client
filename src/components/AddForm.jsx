@@ -53,13 +53,14 @@ function AddForm(props) {
         <input type="text" name="title" value={title} onChange={handleTitle} />
 
         <label htmlFor="description">Description:</label>
-        <input type="text" name="description" value={description} onChange={handleDescription} />
+        <textarea name="description" cols="40" rows="8" value={description} onChange={handleDescription}></textarea>
+        
 
         <label htmlFor="date">Date:</label>
         <input type="date" name="date" value={date} onChange={handleDate} />
 
         <label htmlFor="hour">Hour:</label>
-        <input type="text" name="hour" value={hour} onChange={handleHour} />
+        <input type="time" name="hour" value={hour} onChange={handleHour} />
 
         <label htmlFor="visibility">Visible from:</label>
         <input type="text" name="visibility" value={visibility} onChange={handleVisibility} />
