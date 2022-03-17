@@ -14,9 +14,24 @@ const addNewEventService = (newEvent) => {
     return service.post("/", newEvent)    
 }
 
+const getEventDetailsService = (id) =>{
+    return service.get(`/${id}`)
+}
+
+const deleteEventService = (id) =>{
+    return service.delete(`/${id}`)
+}
+
+const editEventService = (id, updatedEvent) =>{
+    return service.patch(`/${id}`, updatedEvent)
+}
+
 //EXPORT FUNCTIONS:
 
 export {
     getAllEventsService,
-    addNewEventService
+    addNewEventService,
+    getEventDetailsService,
+    deleteEventService,
+    editEventService
 }
