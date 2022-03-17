@@ -2,7 +2,7 @@ import React from 'react'
 
 function AstronomicalEventsDetails() {
   return (
-    <div>AstronomicalEventsDetails</div>
+    <div id="centralComponent" >AstronomicalEventsDetails</div>
   )
 }
 

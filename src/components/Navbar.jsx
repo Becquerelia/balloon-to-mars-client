@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <div className="navbar navbar-expand-lg navbar-dark">
      <div className="container-fluid">       
-       <img src={logoImg} alt="Logo" width="350rem" className="navbar-brand" />
+       <img src={logoImg} alt="Logo" width="350rem" className="navbar-brand logo" />
        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
          <span className="navbar-toggler-icon"></span>
         </button> 
@@ -15,7 +15,7 @@ function Navbar() {
             <li className="nav-item">
               <NavLink to="/"> 
                 {({isActive})=> {
-                  return <button id="btn-home" className={ isActive ? "nav-active" : "nav-unactive" }> Home </button>
+                  return <button id="btn-left" className={ isActive ? "nav-active" : "nav-unactive" }> Home </button>
                 }} 
               </NavLink>
             </li> 
@@ -43,21 +43,21 @@ function Navbar() {
             <li className="nav-item">
               <NavLink to="/astronomical-events"> 
                 {({isActive})=> {
-                  return <button className={ isActive ? "nav-active" : "nav-unactive" }> Astronomic Events </button>
+                  return <button id="btn-right" className={ isActive ? "nav-active" : "nav-unactive" }> Astronomic Events </button>
                 }} 
               </NavLink>
               </li>
               <li className="nav-item">
               <NavLink to="/login"> 
                 {({isActive})=> {
-                  return <button className={ isActive ? "nav-active" : "nav-unactive" }> Log In </button>
+                  return <button id="btn-left" className={ isActive ? "nav-active" : "nav-unactive" }> Log In </button>
                 }} 
               </NavLink>
               </li>
               <li className="nav-item">
               <NavLink to="/signup"> 
                 {({isActive})=> {
-                  return <button id="btn-signup" className={ isActive ? "nav-active" : "nav-unactive" }> Sign Up </button>
+                  return <button id="btn-right" className={ isActive ? "nav-active" : "nav-unactive" }> Sign Up </button>
                 }} 
               </NavLink>
             </li>        

@@ -2,7 +2,7 @@ import React from 'react'
 
 function NotFound() {
   return (
-    <div>Sorry, the page you're looking for doesn't exist. Try with another url direction.</div>
+    <div id="centralComponent" >Sorry, the page you're looking for doesn't exist. Try with another url direction.</div>
   )
 }
 

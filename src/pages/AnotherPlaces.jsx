@@ -2,7 +2,7 @@ import React from 'react'
 
 function AnotherPlaces() {
   return (
-    <div>AnotherPlaces</div>
+    <div id="centralComponent" >AnotherPlaces</div>
   )
 }
 

@@ -2,7 +2,7 @@ import React from 'react'
 
 function AstronomicalEventsEdit() {
   return (
-    <div>AstronomicalEventsEdit</div>
+    <div id="centralComponent" >AstronomicalEventsEdit</div>
   )
 }
 

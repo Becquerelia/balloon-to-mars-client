@@ -1,10 +1,17 @@
 .App {
   text-align: center;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: x-large;
-  min-height: 100vh;
+  font-size: large;  
   background-color: black;
+  min-height: 100vh;
+  min-width: 100vh;
   color: rgb(190, 179, 179);
+  display:flex;
+  flex-direction: column;
+}
+
+.logo {
+  padding:2.5rem;
 }
 
 a {
@@ -12,19 +19,23 @@ a {
 }
 
 button {
-  border: 2px solid rgba(20, 17, 207, 0.904);
-  width: 15rem;
-  height: 8rem;
+  border: 0.2rem solid rgba(20, 17, 207, 0.904);
+  width: 12rem;
+  height: 5rem;
   color: white;
   background-color: black;
 }
 
-#btn-home {
+
+
+#btn-left {
+  margin-left: 0.5rem;
   border-top-left-radius: 2rem;
   border-bottom-left-radius: 2rem;
 }
 
-#btn-signup {
+#btn-right {
+  margin-right: 10rem;
   border-top-right-radius: 2rem;
   border-bottom-right-radius: 2rem;
 }
@@ -37,3 +48,26 @@ button {
   color: white;
   background-color: black;
 }
+
+#centralComponent {
+  height: 45rem;
+}
+
+footer {
+  max-height: 1rem;
+}
+
+@media (max-width: 1030px) {
+  #btn-left {
+    margin-left: 0px;
+    border-top-left-radius: 0rem;
+    border-bottom-left-radius: 0rem;
+  }
+  
+  #btn-right {
+    margin-right: 0px;
+    border-top-right-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+  }  
+}
+

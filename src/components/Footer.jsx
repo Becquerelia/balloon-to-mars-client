@@ -1,8 +1,10 @@
-import React from 'react'
+import lettersImg from "../assets/letters.png"
 
 function Footer() {
   return (
-    <div>Footer</div>
+    <div>
+      <img src={lettersImg} alt="Logo" width="350rem" className="navbar-brand logo" />
+    </div>
   )
 }
 

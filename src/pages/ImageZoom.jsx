@@ -2,7 +2,7 @@ import React from 'react'
 
 function ImageZoom() {
   return (
-    <div>ImageZoom</div>
+    <div id="centralComponent" >ImageZoom</div>
   )
 }
 
