@@ -1,7 +1,7 @@
 //IMPORTS:
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
-import { getEventDetailsService } from "../services/events.services";
+import { useParams, useNavigate } from "react-router-dom"
+import { deleteEventService, getEventDetailsService } from "../services/events.services";
 import eventsLettersImg from "../assets/events-letters.png";
 import moonImg from "../assets/moon.jpg";
 import meteorShowerImg from "../assets/meteor-shower.jpg";
@@ -15,6 +15,7 @@ function AstronomicalEventsDetails() {
   //CONSTANTS & HOOKS:
   const {id} = useParams()
   const [eventDetails, setEventDetails] = useState(null)
+  const navigate = useNavigate()
 
   useEffect(()=>{
     getEventDetails()
@@ -28,7 +29,17 @@ function AstronomicalEventsDetails() {
 
     }
     catch(err){
+      navigate("/error")
+    }
+  }
 
+  const handleClick = async () => {
+    try {
+      await deleteEventService(id)
+      navigate("/astronomical-events")
+    }
+    catch(err){
+      navigate("/error")
     }
   }
 
@@ -53,6 +64,7 @@ function AstronomicalEventsDetails() {
           <p>Hour: {eventDetails.hour}</p>
           <p>{eventDetails.description}</p>
           <p>Visible from: {eventDetails.visibility}</p>
+          <button onClick={handleClick} >Delete Event</button>
         </div>
       </div>
 
