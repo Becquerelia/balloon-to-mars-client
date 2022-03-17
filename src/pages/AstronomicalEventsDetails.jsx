@@ -8,6 +8,7 @@ import meteorShowerImg from "../assets/meteor-shower.jpg";
 import planetsImg from "../assets/planetary-conjunction.jpg";
 import eclipseImg from "../assets/eclipse.jpg";
 import nebulosaImg from "../assets/nebulosa.jpg";
+import RingLoader from "react-spinners/RingLoader";
 
 //!MAIN FUNCTION:
 function AstronomicalEventsDetails() {
@@ -46,8 +47,13 @@ function AstronomicalEventsDetails() {
     }
 
   //!LOADING SYSTEM:
-  if(!eventDetails){
-    return <h2>Loading... Please wait!</h2>
+  if(!eventDetails){ 
+    return (
+      <div>
+        <RingLoader color="#C83B30" size="10rem" />
+        <h2>Loading...</h2>
+      </div>
+    )
   }
 
   //!RENDER VIEW:

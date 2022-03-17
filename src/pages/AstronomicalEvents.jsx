@@ -9,6 +9,7 @@ import AddForm from "../components/AddForm";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import {getAllEventsService} from "../services/events.services.js"
+import RingLoader from "react-spinners/RingLoader";
 
 //!MAIN FUNCTION:
 function AstronomicalEvents() {
@@ -36,8 +37,13 @@ function AstronomicalEvents() {
     }
 
   //!LOADING SYSTEM:
-  if(!allEvents){
-    return <h2>Loading... Please wait!</h2>
+  if(!allEvents){ 
+    return (
+      <div>
+        <RingLoader color="#C83B30" size="10rem" />
+        <h2>Loading...</h2>
+      </div>
+    )
   }
 
   //!RENDER VIEW:

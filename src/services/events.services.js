@@ -1,6 +1,7 @@
+//!IMPORTS:
 import axios from "axios";
 
-//FUNCTIONS:
+//!FUNCTIONS:
 
 const service = axios.create({
     baseURL: `${process.env.REACT_APP_SERVER_URL}/astronomical-events`
@@ -26,7 +27,7 @@ const editEventService = (id, updatedEvent) =>{
     return service.patch(`/${id}`, updatedEvent)
 }
 
-//EXPORT FUNCTIONS:
+//!EXPORT FUNCTIONS:
 
 export {
     getAllEventsService,
