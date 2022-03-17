@@ -1,6 +1,6 @@
-//IMPORTS:
+//!IMPORTS:
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom"
+import { Link, useParams, useNavigate } from "react-router-dom"
 import { deleteEventService, getEventDetailsService } from "../services/events.services";
 import eventsLettersImg from "../assets/events-letters.png";
 import moonImg from "../assets/moon.jpg";
@@ -9,10 +9,10 @@ import planetsImg from "../assets/planetary-conjunction.jpg";
 import eclipseImg from "../assets/eclipse.jpg";
 import nebulosaImg from "../assets/nebulosa.jpg";
 
-//MAIN FUNCTION:
+//!MAIN FUNCTION:
 function AstronomicalEventsDetails() {
 
-  //CONSTANTS & HOOKS:
+  //!CONSTANTS & HOOKS:
   const {id} = useParams()
   const [eventDetails, setEventDetails] = useState(null)
   const navigate = useNavigate()
@@ -21,33 +21,36 @@ function AstronomicalEventsDetails() {
     getEventDetails()
   }, [])
 
-  //INTERNAL FUNCTIONS:
-  const getEventDetails = async () => {
-    try {
-      const response = await getEventDetailsService(id)
-      setEventDetails(response.data)
+  //!INTERNAL FUNCTIONS:
+  
+    //FUNCTION TO GET EVENT DETAILS
+    const getEventDetails = async () => {
+      try {
+        const response = await getEventDetailsService(id)
+        setEventDetails(response.data)
+      }
+      catch(err){
+        navigate("/error")
+      }
+    }
+    
+    //FUNCTION TO DELETE AN EVENT
+    const handleClick = async () => {
+      try {
+        await deleteEventService(id)
+        navigate("/astronomical-events")
+      }
+      catch(err){
+        navigate("/error")
+      }
+    }
 
-    }
-    catch(err){
-      navigate("/error")
-    }
-  }
-
-  const handleClick = async () => {
-    try {
-      await deleteEventService(id)
-      navigate("/astronomical-events")
-    }
-    catch(err){
-      navigate("/error")
-    }
-  }
-
-  //LOADING SYSTEM:
+  //!LOADING SYSTEM:
   if(!eventDetails){
     return <h2>Loading... Please wait!</h2>
   }
 
+  //!RENDER VIEW:
   return (
     <div>
 
@@ -65,6 +68,9 @@ function AstronomicalEventsDetails() {
           <p>{eventDetails.description}</p>
           <p>Visible from: {eventDetails.visibility}</p>
           <button onClick={handleClick} >Delete Event</button>
+          <Link to={`/astronomical-events/${eventDetails._id}/edit`} >
+            <button>Update Event</button>
+          </Link>
         </div>
       </div>
 

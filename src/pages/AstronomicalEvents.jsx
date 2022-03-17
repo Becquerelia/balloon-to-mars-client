@@ -1,4 +1,4 @@
-//IMPORTS:
+//!IMPORTS:
 import eventsLettersImg from "../assets/events-letters.png";
 import moonImg from "../assets/moon.jpg";
 import meteorShowerImg from "../assets/meteor-shower.jpg";
@@ -10,47 +10,44 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import {getAllEventsService} from "../services/events.services.js"
 
-//MAIN FUNCTION:
+//!MAIN FUNCTION:
 function AstronomicalEvents() {
 
-  //CONSTANTS & HOOKS:
+  //!CONSTANTS & HOOKS:
   const [allEvents, setAllEvents] = useState(null)
   const [showForm, setShowForm] = useState(false)
   const navigate = useNavigate()
-
   
   useEffect(()=>{
     getAllEvents()
   }, [])
 
-  //INTERNAL FUNCTIONS:
-  const getAllEvents = async () => {    
-    try {
-      const response = await getAllEventsService()
-      //console.log(response.data)
-      setAllEvents(response.data)
+  //!INTERNAL FUNCTIONS:
+    //FUNCTION TO GET EVENT LIST:
+    const getAllEvents = async () => {    
+      try {
+        const response = await getAllEventsService()
+        //console.log(response.data)
+        setAllEvents(response.data)
+      }
+      catch(err){
+        navigate("/error")
+      }
     }
-    catch(err){
-      navigate("/error")
-    }
-  }
 
-  //LOADING SYSTEM:
+  //!LOADING SYSTEM:
   if(!allEvents){
     return <h2>Loading... Please wait!</h2>
   }
 
+  //!RENDER VIEW:
   return (
     <div>
-
       <img src={eventsLettersImg} alt="Logo" width="700rem"/>
-
       <div>
         <button onClick={() => setShowForm(!showForm)} > {showForm? "Hide Form" : "Share an Astronomical Event"}</button>
-        {showForm && <AddForm getAllEvents={getAllEvents} /> }
-        
+        {showForm && <AddForm getAllEvents={getAllEvents} /> }        
       </div>
-
       <div>
         {allEvents.map((eachEvent)=>{
           return(

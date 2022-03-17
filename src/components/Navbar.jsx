@@ -1,7 +1,8 @@
+//!IMPORTS:
 import logoImg from "../assets/logo-balloon-to-mars.jpg"
 import { NavLink } from "react-router-dom"
 
-
+//!MAIN FUNCTION:
 function Navbar() {
   return (
     <div className="navbar navbar-expand-lg navbar-dark">

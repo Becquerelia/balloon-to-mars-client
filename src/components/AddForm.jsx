@@ -1,12 +1,12 @@
-//IMPORTS:
+//!IMPORTS:
 import { useState } from "react";
 import {addNewEventService} from "../services/events.services.js"
 import { useNavigate } from "react-router-dom"
 
-//MAIN FUNCTION:
+//!MAIN FUNCTION:
 function AddForm(props) {
 
-  //CONSTANTS & HOOKS:
+  //!CONSTANTS & HOOKS:
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [date, setDate] = useState("")
@@ -18,32 +18,36 @@ function AddForm(props) {
   const {getAllEvents} = props
 
 
-  //INTERNAL FUNCTIONS:
-  const handleTitle = (e) => {setTitle(e.target.value)}
-  const handleDescription = (e) => {setDescription(e.target.value)}
-  const handleDate = (e) => {setDate(e.target.value)}
-  const handleHour = (e) => {setHour(e.target.value)}
-  const handleVisibility = (e) => {setVisibility(e.target.value)}
-  const handleImage = (e) => {setImage(e.target.value)}
+  //!INTERNAL FUNCTIONS:
 
-  const handleSubmit = async (e) =>{
-    e.preventDefault()
-    try {
-      const newEvent = {title, description, date, hour, visibility, image}
-      await addNewEventService(newEvent)
-      getAllEvents()
-      setTitle("")
-      setDescription("")
-      setDate("")
-      setHour("")
-      setVisibility("")
-      setImage("")
+    //HANDLE FUNCTIONS:
+    const handleTitle = (e) => {setTitle(e.target.value)}
+    const handleDescription = (e) => {setDescription(e.target.value)}
+    const handleDate = (e) => {setDate(e.target.value)}
+    const handleHour = (e) => {setHour(e.target.value)}
+    const handleVisibility = (e) => {setVisibility(e.target.value)}
+    const handleImage = (e) => {setImage(e.target.value)}
+  
+    //FUNCTION TO ADD NEW EVENT:
+    const handleSubmit = async (e) =>{
+      e.preventDefault()
+      try {
+        const newEvent = {title, description, date, hour, visibility, image}
+        await addNewEventService(newEvent)
+        getAllEvents()
+        setTitle("")
+        setDescription("")
+        setDate("")
+        setHour("")
+        setVisibility("")
+        setImage("")
+      }
+      catch(err){
+        navigate("/error")
+      }    
     }
-    catch(err){
-      navigate("/error")
-    }    
-  }
-
+    
+  //!RENDER VIEW:  
   return (
     <div>
       
