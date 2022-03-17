@@ -1,6 +1,6 @@
 //IMPORTS:
 import { useState } from "react";
-import axios from "axios";
+import {addNewEventService} from "../services/events.services.js"
 import { useNavigate } from "react-router-dom"
 
 //MAIN FUNCTION:
@@ -30,7 +30,7 @@ function AddForm(props) {
     e.preventDefault()
     try {
       const newEvent = {title, description, date, hour, visibility, image}
-      const response = axios.post("http://localhost:5005/api/astronomical-events", newEvent)
+      await addNewEventService(newEvent)
       getAllEvents()
       setTitle("")
       setDescription("")
@@ -43,9 +43,6 @@ function AddForm(props) {
       navigate("/error")
     }    
   }
-
-
-
 
   return (
     <div>

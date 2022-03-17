@@ -7,7 +7,7 @@ import eclipseImg from "../assets/eclipse.jpg";
 import AddForm from "../components/AddForm";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
-import axios from "axios";
+import {getAllEventsService} from "../services/events.services.js"
 
 //MAIN FUNCTION:
 function AstronomicalEvents() {
@@ -24,7 +24,7 @@ function AstronomicalEvents() {
   //INTERNAL FUNCTIONS:
   const getAllEvents = async () => {    
     try {
-      const response = await axios.get("http://localhost:5005/api/astronomical-events")
+      const response = await getAllEventsService()
       //console.log(response.data)
       setAllEvents(response.data)
     }
