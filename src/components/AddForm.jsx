@@ -46,8 +46,7 @@ function AddForm(props) {
 
   return (
     <div>
-      <button>Share an Astronomical Event</button>
-
+      
       <form onSubmit={handleSubmit} >
 
         <label htmlFor="title">Title:</label>
