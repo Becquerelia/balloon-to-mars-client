@@ -1,8 +1,10 @@
-import React from 'react'
+import anotherPlacesLettersImg from "../assets/anotherplaces-letters.png"
 
 function AnotherPlaces() {
   return (
-    <div id="centralComponent" >AnotherPlaces</div>
+    <div>
+      <img src={anotherPlacesLettersImg} alt="Logo" width="700rem"/>
+    </div>
   )
 }
 

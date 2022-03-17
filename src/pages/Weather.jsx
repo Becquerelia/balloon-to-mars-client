@@ -1,8 +1,12 @@
-import React from 'react'
+import weatherLettersImg from "../assets/weatheronmars-letters.png"
 
 function Weather() {
   return (
-    <div id="centralComponent" >Weather</div>
+    <div>
+
+      <img src={weatherLettersImg} alt="Logo" width="500rem"/>
+
+    </div>
   )
 }
 

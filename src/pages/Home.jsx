@@ -1,8 +1,12 @@
-import React from 'react'
+import lettersImg from "../assets/letters.png"
 
 function Home() {
   return (
-    <div id="centralComponent">Home</div>
+    <div>
+      
+      <img src={lettersImg} alt="Logo" width="750rem"/>
+
+    </div>
   )
 }
 

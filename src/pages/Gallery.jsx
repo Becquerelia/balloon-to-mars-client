@@ -1,8 +1,10 @@
-import React from 'react'
+import galleryLettersImg from "../assets/gallery-letters.png"
 
 function Gallery() {
   return (
-    <div id="centralComponent" >Gallery</div>
+    <div>
+      <img src={galleryLettersImg} alt="Logo" width="700rem"/>
+    </div>
   )
 }
 
