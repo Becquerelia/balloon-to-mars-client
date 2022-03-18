@@ -29,9 +29,9 @@ function Navbar() {
           }} 
         </NavLink>
 
-        <NavLink to="/another-places"> 
+        <NavLink to="/pic-of-the-day"> 
           {({isActive})=> {
-            return <button className={ isActive ? "nav-active" : "nav-unactive" }> Another Places </button>
+            return <button className={ isActive ? "nav-active" : "nav-unactive" }> Pic of the Day </button>
           }} 
         </NavLink>
 

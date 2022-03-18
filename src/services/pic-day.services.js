@@ -4,15 +4,15 @@ import axios from "axios";
 //!FUNCTIONS:
 
 const service = axios.create({
-    baseURL: `${process.env.REACT_APP_SERVER_URL}/image-gallery`
+    baseURL: `${process.env.REACT_APP_SERVER_URL}/pic-of-the-day`
 })
 
-const getAllImagesService = () => {
+const getPicOfTheDayService = () => {
     return service.get("/")
 }
 
 //!EXPORT FUNCTIONS:
 
 export {
-    getAllImagesService
+    getPicOfTheDayService
 }
