@@ -60,6 +60,18 @@ footer {
   max-height: 1rem;
 }
 
+.gallery {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.image-preview {
+  margin: 2rem;
+}
+
 @media (max-width: 1030px) {
   #btn-left {
     margin-left: 0px;

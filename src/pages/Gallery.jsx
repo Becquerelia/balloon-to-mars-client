@@ -20,7 +20,8 @@ function Gallery() {
   const getAllImages = async () => {
     try {
       const response = await axios.get("http://localhost:5005/api/image-gallery")
-      console.log(response.data)      
+      //console.log(response.data)
+      setAllImages(response.data)      
     }
     catch(err){
       navigate("/error")
@@ -41,6 +42,19 @@ function Gallery() {
   return (
     <div>
       <img src={galleryLettersImg} alt="Logo" width="700rem"/>
+      <div className="gallery" >
+        {allImages.map((eachImage, index)=>{
+          return(
+            <div className="image-preview" key={eachImage._id} >
+              <Link to={`/image-gallery/${eachImage._id}`} >
+                <img src={eachImage.img_src} alt={`image ${index+1}`} width="300rem" />
+                <h4>Rover's Camera:{eachImage.camera.name}</h4>
+              </Link>              
+
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }
