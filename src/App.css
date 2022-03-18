@@ -1,9 +1,12 @@
+body {
+  width:100vw;
+}
 .App {
   text-align: center;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: large;  
   min-height: 100vh;
-  min-width: 100vh;
+  min-width: 100vw;
   background-color: black;
   color: rgb(190, 179, 179);
   display:flex;
@@ -21,26 +24,36 @@ a {
 
 button {
   border: 0.2rem solid rgba(20, 17, 207, 0.904);
-  width: 12rem;
+  width: 8rem;
   height: 5rem;
   color: white;
   background-color: black;
 }
 
 #btn-left {
-  margin-left: 6rem;
+  margin-left: 2rem;
   border-top-left-radius: 2rem;
   border-bottom-left-radius: 2rem;
 }
 
 #btn-right {
-  margin-right: 10rem;
+  margin-right: 2rem;
   border-top-right-radius: 2rem;
   border-bottom-right-radius: 2rem;
 }
 
+.navbar {
+  display: flex;
+  justify-content: space-around;
+}
+
 .nav-active {
   background-color: rgb(36, 35, 35);
+}
+
+.aline-navbar {
+  display: flex;
+  align-items: flex-start;
 }
 
 footer {
