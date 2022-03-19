@@ -42,35 +42,40 @@ function Signup() {
         <input 
         type="text" 
         name="username" 
-        placeholder="Username" 
+        placeholder="Username"
+        className="usernameInput"
         value={username}
         onChange={(e)=> setUsername(e.target.value)} />
         <br />
         <input 
         type="email" 
         name="email" 
-        placeholder="Email" 
+        placeholder="Email"
+        className="emailInput" 
         value={email}
         onChange={(e)=> setEmail(e.target.value)} />
         <br />
         <input 
         type="password" 
         name="password" 
-        placeholder="Password" 
+        placeholder="Password"
+        className="passwordInput" 
         value={password}
         onChange={(e)=> setPassword(e.target.value)} />
         <br />
         <input 
         type="text" 
         name="country" 
-        placeholder="Your country" 
+        placeholder="Your country"
+        className="countryInput" 
         value={country}
         onChange={(e)=> setCountry(e.target.value)} />
         <br />
         <input 
         type="text" 
         name="city" 
-        placeholder="Your city" 
+        placeholder="Your city"
+        className="cityInput" 
         value={city}
         onChange={(e)=> setCity(e.target.value)} />
         <br />

@@ -41,14 +41,16 @@ function Login() {
         <input 
         type="email" 
         name="email" 
-        placeholder="Email" 
+        placeholder="Email"
+        className="emailInput" 
         value={email}
         onChange={(e)=> setEmail(e.target.value)} />
         <br />
         <input 
         type="password" 
         name="password" 
-        placeholder="Password" 
+        placeholder="Password"
+        className="passwordInput" 
         value={password}
         onChange={(e)=> setPassword(e.target.value)} />
         <br />        

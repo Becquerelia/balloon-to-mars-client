@@ -95,6 +95,50 @@ footer {
   padding: 3rem;
 }
 
+input {
+  width: 30%;
+  border: 0.2rem solid silver;
+  padding: 0.6rem;
+  margin: 0.5rem;
+  border-radius: 999px;
+  text-align: center;
+}
+
+.usernameInput{
+  background-image: url(./assets/userIcon.png);
+  background-repeat: no-repeat;
+  background-size: 2.2rem;
+  background-position: 2.8rem;
+}
+
+.emailInput{
+  background-image: url(./assets/iconEmail.png);
+  background-repeat: no-repeat;
+  background-size: 3.7rem;
+  background-position: 2rem;
+}
+
+.passwordInput{
+  background-image: url(./assets/padlockIcon.png);
+  background-repeat: no-repeat;
+  background-size: 2rem;
+  background-position: 3rem;
+}
+
+.countryInput{
+  background-image: url(./assets/worldIcon.png);
+  background-repeat: no-repeat;
+  background-size: 2.2rem;
+  background-position: 2.9rem;
+}
+
+.cityInput{
+  background-image: url(./assets/cityIcon.png);
+  background-repeat: no-repeat;
+  background-size: 2.6rem;
+  background-position: 2.7rem;
+}
+
 @media (max-width: 1030px) {
   #btn-left {
     margin-left: 0px;
