@@ -60,7 +60,7 @@ footer {
   max-height: 1rem;
 }
 
-.gallery {
+.gallery, .eventsDisposition {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -92,7 +92,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3rem;
+  padding: 6rem;
 }
 
 input {
@@ -138,6 +138,59 @@ input {
   background-size: 2.6rem;
   background-position: 2.7rem;
 }
+
+.addFormBtn {
+  width: 20%;
+  margin: 3%;
+  border-radius: 999px;
+}
+
+.eventCards {
+  width: 15%;  
+  border: 0.15rem solid blue;
+  border-radius: 2rem;
+  margin: 2rem;
+  padding: 1.5rem 1rem;
+}
+
+.imageCardEvent {
+  margin-bottom: 2rem;
+  width: 10rem;
+}
+
+h5 {
+  color: silver;
+}
+
+h2 {
+  margin: 2rem;
+}
+
+.eventDetailsPage {
+  margin: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.eventDetailsCard {
+  padding: 2rem;
+  margin: 2rem;
+  border: 0.3rem solid blue;
+  border-radius: 2rem;
+}
+
+#event-btn {
+  width: 20%;;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 2rem;
+}
+
+.forum {
+  padding: 3rem;
+}
+
 
 @media (max-width: 1030px) {
   #btn-left {

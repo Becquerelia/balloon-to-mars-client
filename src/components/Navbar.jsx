@@ -7,7 +7,7 @@ function Navbar() {
   return (
     <div className="navbar">
       <div>
-        <img src={logoImg} alt="Logo" width="350rem" />
+        <img src={logoImg} alt="Logo" width="300rem" />
       </div>
       
       <div className="aline-navbar" >      

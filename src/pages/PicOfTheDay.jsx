@@ -44,7 +44,7 @@ function PicOfTheDay() {
       <img src={picDayLettersImg} alt="Logo" width="700rem"/>
       <div className="picDay">
         <div>
-          <img src={picDay.hdurl} alt="img" width="800rem" />
+          <img src={picDay.hdurl} alt="img" width="1000rem" />
         </div>
         <div className="explanationDay">
           <h1>{picDay.title}</h1>

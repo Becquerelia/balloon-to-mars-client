@@ -9,6 +9,7 @@ import planetsImg from "../assets/planetary-conjunction.jpg";
 import eclipseImg from "../assets/eclipse.jpg";
 import nebulosaImg from "../assets/nebulosa.jpg";
 import RingLoader from "react-spinners/RingLoader";
+import Forum from "../components/Forum"
 
 //!MAIN FUNCTION:
 function AstronomicalEventsDetails() {
@@ -59,27 +60,24 @@ function AstronomicalEventsDetails() {
   //!RENDER VIEW:
   return (
     <div>
-
       <img src={eventsLettersImg} alt="Logo" width="700rem"/>
-
-      <div>
-        <div>
-          <img src="" alt="" />
-        </div>
-        <div>
+      <div className="eventDetailsPage">   
+        <div className="eventDetailsCard" >         
           <h2>{eventDetails.title}</h2>
           {eventDetails.image === "Moon" ? <img src={moonImg} width="200rem" /> : eventDetails.image === "Planets" ? <img src={planetsImg} width="200rem" /> : eventDetails.image === "Meteor Shower" ? <img src={meteorShowerImg} width="200rem" /> : eventDetails.image === "Eclipse" ? <img src={eclipseImg} width="200rem" /> : <img src={nebulosaImg} width="200rem" /> }
-          <p>Date: {eventDetails.date.split("T")[0]}</p>
-          <p>Hour: {eventDetails.hour}</p>
-          <p>{eventDetails.description}</p>
-          <p>Visible from: {eventDetails.visibility}</p>
-          <button onClick={handleClick} >Delete Event</button>
+          <p>Date: {eventDetails.date.split("T")[0]}</p> 
+          <p>Time: {eventDetails.hour}</p>
+          <p>{eventDetails.description}</p>                   
+          <h5>Visible from: <b>{eventDetails.visibility}</b></h5>
+          <button id="event-btn" onClick={handleClick} >Delete Event</button>
           <Link to={`/astronomical-events/${eventDetails._id}/edit`} >
-            <button>Update Event</button>
-          </Link>
+            <button id="event-btn" >Update Event</button>
+          </Link>          
+        </div>      
+        <div>
+          <Forum />
         </div>
       </div>
-
     </div>
   )
 }

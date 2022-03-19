@@ -51,17 +51,17 @@ function AstronomicalEvents() {
     <div>
       <img src={eventsLettersImg} alt="Logo" width="700rem"/>
       <div>
-        <button onClick={() => setShowForm(!showForm)} > {showForm? "Hide Form" : "Share an Astronomical Event"}</button>
+        <button className="addFormBtn" onClick={() => setShowForm(!showForm)} > {showForm? "Hide Form" : "Share an Astronomical Event"}</button>
         {showForm && <AddForm getAllEvents={getAllEvents} /> }        
       </div>
-      <div>
+      <div className="eventsDisposition" >
         {allEvents.map((eachEvent)=>{
           return(
-            <div key={eachEvent._id} >
+            <div key={eachEvent._id} className="eventCards" >
               <Link to={`/astronomical-events/${eachEvent._id}/details`} >
-                {eachEvent.image === "Moon" ? <img src={moonImg} width="100rem" /> : eachEvent.image === "Planets" ? <img src={planetsImg} width="100rem" /> : eachEvent.image === "Meteor Shower" ? <img src={meteorShowerImg} width="100rem" /> : eachEvent.image === "Eclipse" ? <img src={eclipseImg} width="100rem" /> : <img src={nebulosaImg} width="100rem" /> }                            
-                <p>{eachEvent.title}</p>                
-                <p>{eachEvent.date.split("T")[0]}</p>
+                {eachEvent.image === "Moon" ? <img src={moonImg} className="imageCardEvent" /> : eachEvent.image === "Planets" ? <img src={planetsImg} className="imageCardEvent" /> : eachEvent.image === "Meteor Shower" ? <img src={meteorShowerImg} className="imageCardEvent" /> : eachEvent.image === "Eclipse" ? <img src={eclipseImg} className="imageCardEvent" /> : <img src={nebulosaImg} className="imageCardEvent" /> }                            
+                <h5>{eachEvent.title}</h5>
+                <h6>{eachEvent.date.split("T")[0]}</h6>
                 <p>{eachEvent.visibility}</p> 
               </Link>                         
             </div>
