@@ -1,5 +1,6 @@
 //!IMPORTS:
-import {useState, useEffect} from "react";
+import {useState} from "react";
+import {useNavigate} from "react-router-dom"
 //import galleryLettersImg from "../assets/gallery-letters.png";
 import {loginService} from "../../services/auth.services.js";
 
@@ -7,14 +8,29 @@ import {loginService} from "../../services/auth.services.js";
 function Login() {
 
   //!CONSTANTS & HOOKS:
-  const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [errorMessage, setErrorMessage] = useState("")
+
+  const navigate = useNavigate()
 
   //!INTERNAL FUNCTIONS:
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    
+    const user = {email, password}
+    try {
+      const response = await loginService(user);
+      const {authToken} = response.data
+      localStorage.setItem("authToken", authToken)
+      navigate("/")
+    }
+    catch(err){
+      if (err?.response?.status === 400) {
+        setErrorMessage(err.response.data.errorMessage)
+      } else {
+        navigate("/error")
+      }  
+    }    
   }
 
   //!RENDER VIEW:
@@ -37,6 +53,8 @@ function Login() {
         onChange={(e)=> setPassword(e.target.value)} />
         <br />        
         <button>Submit</button>
+        <br />
+        <p>{errorMessage}</p>
 
       </form>
     </div>
