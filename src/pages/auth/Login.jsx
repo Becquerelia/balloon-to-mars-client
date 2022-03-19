@@ -22,7 +22,7 @@ function Login() {
       const response = await loginService(user);
       const {authToken} = response.data
       localStorage.setItem("authToken", authToken)
-      navigate("/")
+      navigate("/profile")
     }
     catch(err){
       if (err?.response?.status === 400) {

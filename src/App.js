@@ -10,6 +10,7 @@ import AstronomicalEventsDetails from "./pages/AstronomicalEventsDetails"
 import AstronomicalEventsEdit from "./pages/AstronomicalEventsEdit"
 import Signup from "./pages/auth/Signup"
 import Login from "./pages/auth/Login.jsx"
+import Profile from "./pages/profile/Profile.jsx"
 import NotFound from "./pages/Errors/NotFound"
 import Error from "./pages/Errors/Error.jsx"
 import Navbar from "./components/Navbar"
@@ -32,7 +33,9 @@ function App() {
        <Route path="/astronomical-events/:id/edit" element={ <AstronomicalEventsEdit /> } />
 
        <Route path="/signup" element={ <Signup /> } />
-       <Route path="/login" element={ <Login /> } />  
+       <Route path="/login" element={ <Login /> } />
+
+       <Route path="/profile" element={ <Profile /> } />  
 
        <Route path="/error" element={ <Error /> } />
        <Route path="*" element={ <NotFound /> } />  
