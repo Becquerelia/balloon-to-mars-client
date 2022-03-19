@@ -51,7 +51,7 @@ function AstronomicalEvents() {
     <div>
       <img src={eventsLettersImg} alt="Logo" width="700rem"/>
       <div>
-        <button className="addFormBtn" onClick={() => setShowForm(!showForm)} > {showForm? "Hide Form" : "Share an Astronomical Event"}</button>
+        <button className="formBtn" onClick={() => setShowForm(!showForm)} > {showForm? "Hide Form" : "Share an Astronomical Event"}</button>
         {showForm && <AddForm getAllEvents={getAllEvents} /> }        
       </div>
       <div className="eventsDisposition" >

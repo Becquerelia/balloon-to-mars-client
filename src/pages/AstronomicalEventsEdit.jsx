@@ -63,13 +63,13 @@ function AstronomicalEventsEdit() {
   return (
     <div>
 
-      <form onSubmit={handleSubmit} >
+      <form onSubmit={handleSubmit} className="formDisposition" >
 
         <label htmlFor="title">Title:</label>
         <input type="text" name="title" value={title} onChange={handleTitle} />
 
         <label htmlFor="description">Description:</label>
-        <textarea name="description" cols="40" rows="8" value={description} onChange={handleDescription}></textarea>
+        <textarea name="description" cols="60" rows="5" value={description} onChange={handleDescription}></textarea>
 
         <label htmlFor="date">Date:</label>
         <input type="date" name="date" value={date} onChange={handleDate} />
@@ -89,7 +89,7 @@ function AstronomicalEventsEdit() {
           <option value="Eclipse">Eclipse</option>
         </select>
 
-        <button>Update Event</button>
+        <button className="formBtn" >Update Event</button>
 
       </form>
     </div>

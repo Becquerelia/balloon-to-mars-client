@@ -51,13 +51,13 @@ function AddForm(props) {
   return (
     <div>
       
-      <form onSubmit={handleSubmit} >
+      <form onSubmit={handleSubmit} className="formDisposition" >
 
         <label htmlFor="title">Title:</label>
         <input type="text" name="title" value={title} onChange={handleTitle} />
 
         <label htmlFor="description">Description:</label>
-        <textarea name="description" cols="40" rows="8" value={description} onChange={handleDescription}></textarea>
+        <textarea name="description" cols="60" rows="5" value={description} onChange={handleDescription}></textarea>
         
 
         <label htmlFor="date">Date:</label>
@@ -78,7 +78,7 @@ function AddForm(props) {
           <option value="Eclipse">Eclipse</option>
         </select>
 
-        <button>Add event</button>
+        <button className="formBtn" >Add event</button>
 
       </form>
 

@@ -54,7 +54,7 @@ function Login() {
         value={password}
         onChange={(e)=> setPassword(e.target.value)} />
         <br />        
-        <button>Submit</button>
+        <button id="event-btn" >Submit</button>
         <br />
         <p>{errorMessage}</p>
 
