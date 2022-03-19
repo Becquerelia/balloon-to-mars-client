@@ -20,7 +20,7 @@ function PicOfTheDay() {
   const getPicDay = async () => {
     try {
       const response = await getPicOfTheDayService();
-      console.log(response.data)
+      //console.log(response.data)
       setPicDay(response.data)      
     }
     catch(err){

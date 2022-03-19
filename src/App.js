@@ -8,8 +8,10 @@ import PicOfTheDay from "./pages/PicOfTheDay"
 import AstronomicalEvents from "./pages/AstronomicalEvents"
 import AstronomicalEventsDetails from "./pages/AstronomicalEventsDetails"
 import AstronomicalEventsEdit from "./pages/AstronomicalEventsEdit"
-import NotFound from "./pages/NotFound"
-import Error from "./pages/Error"
+import Signup from "./pages/auth/Signup"
+import Login from "./pages/auth/Login.jsx"
+import NotFound from "./pages/Errors/NotFound"
+import Error from "./pages/Errors/Error.jsx"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 
@@ -29,8 +31,11 @@ function App() {
        <Route path="/astronomical-events/:id/details" element={ <AstronomicalEventsDetails /> } />
        <Route path="/astronomical-events/:id/edit" element={ <AstronomicalEventsEdit /> } />
 
-       <Route path="/error" element={ <NotFound /> } />
-       <Route path="*" element={ <Error /> } />  
+       <Route path="/signup" element={ <Signup /> } />
+       <Route path="/login" element={ <Login /> } />  
+
+       <Route path="/error" element={ <Error /> } />
+       <Route path="*" element={ <NotFound /> } />  
 
       </Routes>
 
