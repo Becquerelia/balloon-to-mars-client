@@ -41,20 +41,19 @@ if(!allCommentaries){
 
 //!RENDER VIEW:
   return (
-    <div>
+    <div className="forum" >
       <h2>Event Forum</h2>
-      <ul>{allCommentaries.map((eachCommentary)=>{
+      {allCommentaries.map((eachCommentary)=>{
         if (eachCommentary.event === id){
           return(
-          <li key={eachCommentary._id} >
-            <p>{eachCommentary.user}</p>
+          <div key={eachCommentary._id} className="commentaries" >
+            <p>Posted by: <b>{eachCommentary.user}</b></p>
             <p>{eachCommentary.text}</p>
-          </li>
+          </div>
         )
-        }
-        
+        }        
       })}
-      </ul>
+      <button className="forum-btn" ><b>Add a Commentary</b></button>      
     </div>
   )
 }
