@@ -5,7 +5,9 @@ import {useNavigate} from "react-router-dom"
 import {loginService} from "../../services/auth.services.js";
 
 //!MAIN FUNCTION:
-function Login() {
+function Login(props) {
+
+  const {setIsLoggedIn} = props
 
   //!CONSTANTS & HOOKS:
   const [email, setEmail] = useState("")
@@ -22,6 +24,7 @@ function Login() {
       const response = await loginService(user);
       const {authToken} = response.data
       localStorage.setItem("authToken", authToken)
+      setIsLoggedIn(true)
       navigate("/profile")
     }
     catch(err){

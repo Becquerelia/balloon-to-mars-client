@@ -42,6 +42,16 @@ function MyBookings() {
     <div>
       <ProfileSideBar />
       <h1>Your Bookings:</h1>
+      {allBookings.map((eachBooking)=>{
+        return(
+          <div key={eachBooking._id} >
+            <p>Name Booking: {eachBooking.firstName} {eachBooking.lastName}</p>
+            <p>Date:{eachBooking.date.split("T")[0]} Time: {eachBooking.time}</p>
+            <p>Visitants:{eachBooking.numberOfPersons} person/s</p>
+            <p>Total price: {eachBooking.price} €</p>
+          </div>
+        )
+      })}
     </div>
   )
 }

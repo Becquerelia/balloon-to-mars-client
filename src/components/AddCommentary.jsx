@@ -1,36 +1,28 @@
 //!IMPORTS:
 import { useState } from "react";
 import {addNewCommentaryService} from "../services/forum.services.js"
-import { useParams, useNavigate } from "react-router-dom"
+import {useNavigate } from "react-router-dom"
 
 //!MAIN FUNCTION:
 function AddCommentary(props) {
 
   //!CONSTANTS & HOOKS:
-  const [user, setUser] = useState("")
-  const [text, setText] = useState("")
-  const [event, setEvent] = useState("")
-  
-  const {id} = useParams()
+  const [text, setText] = useState("")    
   const navigate = useNavigate()
   const {getAllCommentaries} = props
 
   //!INTERNAL FUNCTIONS:
 
     //HANDLE FUNCTIONS:
-    const handleUser = (e) => {setUser(e.target.value)}
     const handleText = (e) => {setText(e.target.value)}
 
     //FUNCTION TO ADD NEW EVENT:
     const handleSubmit = async (e) =>{
         e.preventDefault()
         try {
-          const newCommentary = {user, text, event}
-          await addNewCommentaryService(newCommentary)
+          await addNewCommentaryService(text)
           getAllCommentaries()
-          setUser("")
-          setText("")
-          setEvent("")       
+          setText("")                
         }
         catch(err){
           navigate("/error")
@@ -41,9 +33,6 @@ function AddCommentary(props) {
   return (
     <div>
         <form onSubmit={handleSubmit} className="formDisposition" >
-
-            <label htmlFor="user">Username:</label>
-            <input type="text" name="user" value={user} onChange={handleUser} />
 
             <textarea name="text" cols="60" rows="5" value={text} onChange={handleText}></textarea>
 
