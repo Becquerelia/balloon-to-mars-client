@@ -217,11 +217,13 @@ h2 {
 
 .forum-btn {
   width: 40%;
-  font-size: 1rem;
+  font-size: 100%;
+  font-weight: bold;
   color: black;
   background-color: antiquewhite;  
-  padding: 1rem;
-  margin: 1rem;
+  padding: 1.5%;
+  margin: 3%;
+  border-color: black;
   border-radius: 2rem;  
 }
 

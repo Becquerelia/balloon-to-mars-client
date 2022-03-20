@@ -27,6 +27,14 @@ const editEventService = (id, updatedEvent) =>{
     return service.patch(`/${id}`, updatedEvent)
 }
 
+const getForumService = (id) => {
+    return service.get(`/${id}/forum`, id)
+}
+
+const addNewCommentaryService = (id, newCommentary) => {
+    return service.post(`/${id}/forum`, newCommentary)    
+}
+
 //!EXPORT FUNCTIONS:
 
 export {
@@ -34,5 +42,7 @@ export {
     addNewEventService,
     getEventDetailsService,
     deleteEventService,
-    editEventService
+    editEventService,
+    getForumService,
+    addNewCommentaryService
 }

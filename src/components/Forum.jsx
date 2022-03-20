@@ -1,14 +1,16 @@
 //!IMPORTS:
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom"
+import {getForumService} from "../services/events.services.js"
+import AddCommentary from "../components/AddCommentary";
 import RingLoader from "react-spinners/RingLoader";
-import axios from "axios"
 
 //!MAIN FUNCTION:
 function Forum() {
   
   //!CONSTANTS & HOOKS:
   const [allCommentaries, setAllCommentaries] = useState(null)
+  const [showForm, setShowForm] = useState(false)
   const {id} = useParams()  
   const navigate = useNavigate()
   
@@ -20,8 +22,8 @@ function Forum() {
    //FUNCTION TO GET THE FORUM (ALL COMMENTARIES ABOUT THE EVENT):
    const getAllCommentaries = async () => {         
     try {
-      const response = await axios.get(`http://localhost:5005/api/astronomical-events/${id}/forum`)
-      console.log(response.data)
+      const response = await getForumService();
+      //console.log(response.data)
       setAllCommentaries(response.data)
     }
     catch(err){
@@ -44,16 +46,19 @@ if(!allCommentaries){
     <div className="forum" >
       <h2>Event Forum</h2>
       {allCommentaries.map((eachCommentary)=>{
-        if (eachCommentary.event === id){
+       // if (eachCommentary.event === id){
           return(
           <div key={eachCommentary._id} className="commentaries" >
             <p>Posted by: <b>{eachCommentary.user}</b></p>
             <p>{eachCommentary.text}</p>
           </div>
         )
-        }        
+       // }        
       })}
-      <button className="forum-btn" ><b>Add a Commentary</b></button>      
+      <div>
+        <button className="forum-btn" onClick={() => setShowForm(!showForm)} > {showForm? "Close" : "Comment"}</button>
+        {showForm && <AddCommentary getAllCommentaries={getAllCommentaries} /> }        
+      </div>            
     </div>
   )
 }

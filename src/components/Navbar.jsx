@@ -17,9 +17,9 @@ function Navbar() {
           }} 
         </NavLink>
 
-        <NavLink to="/weather"> 
+        <NavLink to="/observatory"> 
           {({isActive})=> {
-            return <button className={ isActive ? "nav-active" : "nav-unactive" }> Weather in Mars </button>
+            return <button className={ isActive ? "nav-active" : "nav-unactive" }> Observatory </button>
           }} 
         </NavLink>
 

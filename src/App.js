@@ -2,7 +2,7 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom"
 import Home from "./pages/Home"
-import Weather from "./pages/Weather"
+import Observatory from "./pages/Observatory"
 import Gallery from "./pages/Gallery"
 import PicOfTheDay from "./pages/PicOfTheDay"
 import AstronomicalEvents from "./pages/AstronomicalEvents"
@@ -25,7 +25,7 @@ function App() {
       <Routes >  
 
        <Route path="/" element={ <Home /> } />
-       <Route path="/weather" element={ <Weather /> } />
+       <Route path="/observatory" element={ <Observatory /> } />
        <Route path="/image-gallery" element={ <Gallery /> } />
        <Route path="/pic-of-the-day" element={ <PicOfTheDay /> } />
        <Route path="/astronomical-events" element={ <AstronomicalEvents /> } />
