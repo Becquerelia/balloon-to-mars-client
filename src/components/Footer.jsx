@@ -3,7 +3,7 @@ import lettersImg from "../assets/letters.png"
 function Footer() {
   return (
     <div>
-      <img src={lettersImg} alt="Logo" width="350rem" className="navbar-brand logo" />
+      <h4>© 2022 Balloon to Mars</h4>
     </div>
   )
 }

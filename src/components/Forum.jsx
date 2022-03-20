@@ -46,14 +46,14 @@ if(!allCommentaries){
     <div className="forum" >
       <h2>Event Forum</h2>
       {allCommentaries.map((eachCommentary)=>{
-       // if (eachCommentary.event === id){
+        if (eachCommentary.event === id){
           return(
           <div key={eachCommentary._id} className="commentaries" >
             <p>Posted by: <b>{eachCommentary.user}</b></p>
             <p>{eachCommentary.text}</p>
           </div>
         )
-       // }        
+        }        
       })}
       <div>
         <button className="forum-btn" onClick={() => setShowForm(!showForm)} > {showForm? "Close" : "Comment"}</button>

@@ -1,8 +1,12 @@
-import React from 'react'
+import ProfileSideBar from "../../components/ProfileSideBar"
 
 function Profile() {
   return (
-    <div>Profile</div>
+    <div>
+
+      <h1>Welcome, X!</h1>
+
+    </div>
   )
 }
 
