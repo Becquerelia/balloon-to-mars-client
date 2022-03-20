@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom"
 function Booking() {
 
   //!CONSTANTS & HOOKS:
-  const [user, setUser] = useState("")
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
   const [date, setDate] = useState("")
@@ -18,18 +17,17 @@ function Booking() {
   const navigate = useNavigate()
 
   //!INTERNAL FUNCTIONS:
-  const handleUser = (e) => {setUser(e.target.value)}
   const handleFirstName = (e) => {setFirstName(e.target.value)}
   const handleLastName = (e) => {setLastName(e.target.value)}
   const handleDate = (e) => {setDate(e.target.value)}
   const handleTime = (e) => {setTime(e.target.value)}
   const handleNumberOfPersons = (e) => {setNumberOfPersons(e.target.value)}
 
-  //FUNCTION TO ADD NEW EVENT:
+  //FUNCTION TO BOOK A VISIT:
   const handleSubmit = async (e) =>{
     e.preventDefault()
     try {
-      const newBooking = {user, date, time, numberOfPersons, price:total}
+      const newBooking = {firstName, lastName, date, time, numberOfPersons, price:total}
       await bookVisitService(newBooking)      
       navigate("/profile")
     }
@@ -42,9 +40,6 @@ function Booking() {
   return (
     <div>
       <form onSubmit={handleSubmit} className="formDisposition" >
-
-        <label htmlFor="user">User:</label>
-        <input type="text" name="user" value={user} onChange={handleUser} />
 
         <label htmlFor="firstName">First Name:</label>
         <input type="text" name="firstName" value={firstName} onChange={handleFirstName} />

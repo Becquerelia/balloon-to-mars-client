@@ -1,7 +1,7 @@
 //!IMPORTS:
 import galleryLettersImg from "../assets/gallery-letters.png"
 import {useState, useEffect} from 'react'
-import {Link, useNavigate} from "react-router-dom"
+import {useNavigate} from "react-router-dom"
 import RingLoader from "react-spinners/RingLoader";
 import {getAllImagesService} from "../services/gallery.services"
 

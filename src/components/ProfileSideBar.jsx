@@ -4,9 +4,14 @@ import { NavLink } from "react-router-dom"
 function ProfileSideBar() {
   return (
     <div>
-        <NavLink to="/"> 
+        <NavLink to="/profile" end> 
           {({isActive})=> {
-            return <button id="btn-left" className={ isActive ? "nav-active" : "nav-unactive" }> Home </button>
+            return <button className={ isActive ? "nav-active" : "nav-unactive" }> Profile </button>
+          }} 
+        </NavLink>
+        <NavLink to="/profile/my-bookings"> 
+          {({isActive})=> {
+            return <button className={ isActive ? "nav-active" : "nav-unactive" }> Bookings </button>
           }} 
         </NavLink>
     </div>

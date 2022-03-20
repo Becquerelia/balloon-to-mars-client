@@ -11,6 +11,7 @@ import AstronomicalEventsEdit from "./pages/AstronomicalEventsEdit"
 import Signup from "./pages/auth/Signup"
 import Login from "./pages/auth/Login.jsx"
 import Profile from "./pages/profile/Profile.jsx"
+import MyBookings from "./pages/profile/MyBookings.jsx"
 import NotFound from "./pages/Errors/NotFound"
 import Error from "./pages/Errors/Error.jsx"
 import Navbar from "./components/Navbar"
@@ -35,7 +36,8 @@ function App() {
        <Route path="/signup" element={ <Signup /> } />
        <Route path="/login" element={ <Login /> } />
 
-       <Route path="/profile" element={ <Profile /> } />  
+       <Route path="/profile" element={ <Profile /> } />
+       <Route path="/profile/my-bookings" element={ <MyBookings /> } />   
 
        <Route path="/error" element={ <Error /> } />
        <Route path="*" element={ <NotFound /> } />  

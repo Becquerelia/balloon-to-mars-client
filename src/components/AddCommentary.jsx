@@ -1,6 +1,6 @@
 //!IMPORTS:
 import { useState } from "react";
-import {addNewCommentaryService} from "../services/events.services.js"
+import {addNewCommentaryService} from "../services/forum.services.js"
 import { useParams, useNavigate } from "react-router-dom"
 
 //!MAIN FUNCTION:

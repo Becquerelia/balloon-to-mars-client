@@ -1,7 +1,7 @@
 //!IMPORTS:
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom"
-import {getForumService} from "../services/events.services.js"
+import {getForumService} from "../services/forum.services"
 import AddCommentary from "../components/AddCommentary";
 import RingLoader from "react-spinners/RingLoader";
 
