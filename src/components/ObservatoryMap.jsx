@@ -6,7 +6,7 @@ function ObservatoryMap() {
         { name: "Iron Observatory", location: {lat: 40.572998, lng: -3.898421}}
     ]
 
-    const mapStyles = {height: "40vh", width: "40%"}
+    const mapStyles = {height: "35vh", width: "30vw"}
 
     const defaultCenter = {lat: 40.572998, lng: -3.898421}
 
