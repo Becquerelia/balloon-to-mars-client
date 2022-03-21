@@ -2,15 +2,28 @@ import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from "@fullcalendar/interaction"
+import momentPlugin from "@fullcalendar/moment"
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from "react-router-dom"
 import {getAllBookingsService} from "../services/booking.services"
+import RingLoader from "react-spinners/RingLoader";
 
 function ObservatoryCalendar() {
 
-    const [bookings, setAllBookings] = useState([])
+    const [allBookings, setAllBookings] = useState([])
+    const [newBooking, setNewBooking] = useState(null)
+    //events?
+
 
     const navigate = useNavigate()
+
+    // const seeBookingOnCalendar = () => {
+    //     return(
+    //         <div>
+    //             {dateSelected.timeText}
+    //         </div>
+    //     )
+    // }
 
     useEffect(()=>{
         getAllBookings()
@@ -19,33 +32,51 @@ function ObservatoryCalendar() {
     const getAllBookings = async () => {
         try {
             const response = await getAllBookingsService()
+            //let dateOfBookingsDone
+            //response.data.map((eachBookingDone)=>{
+            //    return dateOfBookingsDone = eachBookingDone.lastname
+            //})
             setAllBookings(response.data)
+            console.log(response.data)
         }
         catch(err){
-            navigate("/error")
+            if (err.response.status === 401) {
+                navigate("/login");
+            } else {
+                navigate("/error");
+            }
         }
-    }
+    } 
+  
+  //!LOADING SYSTEM:
+  if(!allBookings){ 
+    return (
+      <div>
+        <RingLoader color="#C83B30" size="10rem" />
+        <h2>Loading...</h2>
+      </div>
+    )
+  } 
 
-    const notAvailableDates = () => bookings.map((eachBooking) => {
-        return eachBooking.date
-    })    
-    
+  //!RENDER VIEW:
   return (
     <div>
         <FullCalendar 
-        initialView="dayGridMonth"
-        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+        initialView="timeGridWeek"
+        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, momentPlugin]}
         //dateClick={(e)=>alert(e.dateStr)}
         dateClick={(e)=>console.log("Fecha seleccionada:" + e.dateStr)}        
         headerToolbar={{
               left: 'prev,next',
               center: 'title',
-              right: 'dayGridMonth,timeGridWeek'
+              right: 'timeGridWeek,dayGridMonth'
             }}
-        events={notAvailableDates}        
+        events={allBookings}
+        eventColor= "white"        
+        selectMirror={true}
         businessHours= {{
-        daysOfWeek: [ 0, 4, 5, 6 ],
-        startTime: '22:00', 
+        daysOfWeek: [ 4, 5, 6 ],
+        startTime: '21:30', 
         endTime: '24:00', 
         }}
         allDaySlot={false}
@@ -57,8 +88,7 @@ function ObservatoryCalendar() {
         droppable={true}
         longPressDelay='500'
         dayMaxEvents={true}
-        eventLongPressDelay='500'
-        selectLongPressDelay='500'
+        //eventContent ={seeBookingOnCalendar}
         />
     </div>
   )
