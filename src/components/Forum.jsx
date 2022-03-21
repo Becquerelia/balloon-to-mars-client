@@ -49,7 +49,7 @@ if(!allCommentaries){
         if (eachCommentary.event === id){
           return(
           <div key={eachCommentary._id} className="commentaries" >
-            <p>Posted by: <b>{eachCommentary.user}</b></p>
+            <p>Posted by: <b>{eachCommentary.user.username}</b></p>
             <p>{eachCommentary.text}</p>
           </div>
         )

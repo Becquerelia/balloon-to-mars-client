@@ -13,8 +13,9 @@ service.interceptors.request.use((config)=>{
     return config;
    })
 
-   const addNewCommentaryService = (id) => {
-    return service.post(`/${id}`)    
+   const addNewCommentaryService = (id, text) => {
+       console.log(text)
+    return service.post(`/${id}`, {text})    
 }
 
    const getForumService = (id) => {

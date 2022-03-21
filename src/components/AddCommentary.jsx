@@ -1,7 +1,7 @@
 //!IMPORTS:
 import { useState } from "react";
 import {addNewCommentaryService} from "../services/forum.services.js"
-import {useNavigate } from "react-router-dom"
+import {useParams, useNavigate } from "react-router-dom"
 
 //!MAIN FUNCTION:
 function AddCommentary(props) {
@@ -10,6 +10,7 @@ function AddCommentary(props) {
   const [text, setText] = useState("")    
   const navigate = useNavigate()
   const {getAllCommentaries} = props
+  const {id} = useParams()
 
   //!INTERNAL FUNCTIONS:
 
@@ -20,7 +21,8 @@ function AddCommentary(props) {
     const handleSubmit = async (e) =>{
         e.preventDefault()
         try {
-          await addNewCommentaryService(text)
+          console.log(text)
+          await addNewCommentaryService(id, text)        
           getAllCommentaries()
           setText("")                
         }
