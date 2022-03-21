@@ -2,6 +2,7 @@
 import { useState } from "react";
 import {bookVisitService} from "../services/booking.services"
 import { useNavigate } from "react-router-dom"
+import ObservatoryCalendar from "./ObservatoryCalendar";
 
 //!MAIN FUNCTION:
 function Booking() {
@@ -53,9 +54,9 @@ function Booking() {
         <label htmlFor="time">Time:</label>
         <select name="time" value={time} onChange={handleTime}>          
             <option value="">Select One...</option>
-            <option value="22:00">22:00</option>
-            <option value="23:00">23:00</option>
-            <option value="24:00">24:00</option>
+            <option value="21:30">21:30</option>
+            <option value="22:30">22:30</option>
+            <option value="23:30">23:30</option>
         </select>
 
         <label htmlFor="numberOfPersons">Number of Persons:</label>
@@ -70,6 +71,8 @@ function Booking() {
         </select>
 
         <h3>Total: {total} €</h3>
+
+        <ObservatoryCalendar />
 
         
 

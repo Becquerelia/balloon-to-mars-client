@@ -17,8 +17,13 @@ const bookVisitService = (newBooking) => {
     return service.post("/", newBooking)    
 }
 
+const getAllBookingsService = () => {
+    return service.get("/all-bookings")    
+}
+
 //!EXPORT FUNCTIONS:
 
 export {
-    bookVisitService
+    bookVisitService,
+    getAllBookingsService
 }
