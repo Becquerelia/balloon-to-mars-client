@@ -13,13 +13,15 @@ service.interceptors.request.use((config)=>{
     return config;
    })
 
-const getForumService = (id) => {
+   const addNewCommentaryService = (id) => {
+    return service.post(`/${id}`)    
+}
+
+   const getForumService = (id) => {
     return service.get(`/${id}/forum`, id)
 }
 
-const addNewCommentaryService = (id, newCommentary) => {
-    return service.post(`/${id}/forum`, newCommentary)    
-}
+
 
 //!EXPORT FUNCTIONS:
 

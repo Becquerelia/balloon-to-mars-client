@@ -57,11 +57,39 @@ button {
   align-items: flex-start;
 }
 
+.side-bar {
+  display: flex;
+  flex-direction: column;
+}
+
+#sidebar-btn {
+  font-size: larger;
+}
+
+.my-profile {
+  border: 0.3rem solid blue;
+  border-radius: 1rem;
+  margin: 2rem;
+  display: flex;
+  flex-direction: row;  
+}
+
+.card-profile{
+  width: 80%;  
+}
+
+.oneBooking {
+  border: 0.2rem solid blue;
+  border-radius: 1rem;
+  margin: 5%;
+  padding: 2%;  
+}
+
 footer {
   max-height: 1rem;
 }
 
-.gallery, .eventsDisposition {
+.gallery, .eventsDisposition, .my-bookings {
   display: flex;
   flex-direction: row;
   align-items: flex-end;

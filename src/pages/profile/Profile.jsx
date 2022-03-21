@@ -44,9 +44,11 @@ function Profile() {
 
   //!RENDER VIEW:
   return (
-    <div>      
+    <div className="my-profile" >      
       <ProfileSideBar />
-      <h1>Welcome, {userInfo.username}!</h1>
+      <div className="card-profile" >
+        <h1>Welcome, {userInfo.username}!</h1>
+      </div>
 
     </div>
   )

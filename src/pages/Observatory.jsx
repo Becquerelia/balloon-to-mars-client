@@ -6,6 +6,7 @@ import observatoryImg from "../assets/Observatorios-Las-Campanas-1.jpg";
 import addressIcon from "../assets/SeekPng.com_address-png_2048143.png";
 import phoneIcon from "../assets/phone.png";
 import emailIcon from "../assets/emailBlue.png";
+import ObservatoryMap from "../components/ObservatoryMap";
 
 //!MAIN FUNCTION:
 function Observatory() {
@@ -38,6 +39,7 @@ function Observatory() {
         </div>
       </div>
     </div>
+    <ObservatoryMap />
     <div>
       <img src={emailIcon} width="2%" alt="" />
       <h2>Contact by email:</h2>
