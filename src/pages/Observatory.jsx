@@ -59,8 +59,10 @@ function Observatory() {
     </div>
     
     <div>
-      <img src={emailIcon} width="2%" alt="" />
-      <h2>Contact by email:</h2>
+      
+      <h1>Contact us by email </h1>
+      <a href="mailto:info@ironobservatory.com"> <img src={emailIcon} width="10%" alt="emailIcon" /> </a>
+      
     </div>
     </div>
   )
