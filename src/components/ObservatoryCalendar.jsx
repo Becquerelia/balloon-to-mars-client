@@ -3,6 +3,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from "@fullcalendar/interaction"
 import momentPlugin from "@fullcalendar/moment"
+import esLocale from '@fullcalendar/core/locales/es';
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from "react-router-dom"
 import {getAllBookingsService} from "../services/booking.services"
@@ -13,34 +14,22 @@ function ObservatoryCalendar(props) {
   const {date, setDate} = props
 
     const [allBookings, setAllBookings] = useState([])
-    const [newBooking, setNewBooking] = useState(null)
-    //events?
-
-
+   
     const navigate = useNavigate()
-
-    // const seeBookingOnCalendar = () => {
-    //     return(
-    //         <div>
-    //             {dateSelected.timeText}
-    //         </div>
-    //     )
-    // }
-
+  
     useEffect(()=>{
         getAllBookings()
       }, [])
 
     const getAllBookings = async (e) => {
-      const {time} = e.event._instance.range
         try {
             const response = await getAllBookingsService()
-            let dateOfBookingsDone
-            response.data.forEach((eachBookingDone)=>{
-                return dateOfBookingsDone = eachBookingDone.lastname
-            })
+            // let dateOfBookingsDone
+            // response.data.map((eachBookingDone)=>{
+            //     return dateOfBookingsDone = eachBookingDone.time
+            // })
             setAllBookings(response.data)
-            console.log(dateOfBookingsDone)
+            console.log(response.data)
         }
         catch(err){
             if (err.response.status === 401) {
@@ -75,7 +64,8 @@ function ObservatoryCalendar(props) {
               right: 'timeGridWeek,dayGridMonth'
             }}
         events={allBookings}
-        eventColor= "white"        
+        eventColor= "white"
+        locale={esLocale}        
         selectMirror={true}
         businessHours= {{
         daysOfWeek: [ 4, 5, 6 ],
