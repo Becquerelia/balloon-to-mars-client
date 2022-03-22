@@ -14,6 +14,7 @@ import Signup from "./pages/auth/Signup"
 import Login from "./pages/auth/Login.jsx"
 import Profile from "./pages/profile/Profile.jsx"
 import MyBookings from "./pages/profile/MyBookings.jsx"
+import Admin from "./pages/admin/Admin.jsx"
 import NotFound from "./pages/Errors/NotFound"
 import Error from "./pages/Errors/Error.jsx"
 import Navbar from "./components/Navbar"
@@ -22,9 +23,11 @@ import Footer from "./components/Footer"
 function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [admin, setAdmin] = useState(false)
 
   useEffect(()=>{ 
-    verifyUser()  
+    verifyUser()
+    adminVerify()  
   }, [])
 
   const verifyUser = async () => {
@@ -37,10 +40,22 @@ function App() {
     }    
   }
 
+  const adminVerify = async () => {
+    try{
+      await verifyService();
+      // if ( adminRole === "admin"){
+      //   setIsAdmin(true);
+      // }    
+    }
+    catch(err){
+      setAdmin(false);
+    }  
+  }
+  
   return (
     <div className="App" >
 
-    <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+    <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} admin={admin} setAdmin={setAdmin} />
 
       <Routes >  
 
@@ -53,10 +68,12 @@ function App() {
        <Route path="/astronomical-events/:id/edit" element={ <AstronomicalEventsEdit /> } />
 
        <Route path="/signup" element={ <Signup /> } />
-       <Route path="/login" element={ <Login setIsLoggedIn={setIsLoggedIn} /> } />
+       <Route path="/login" element={ <Login setIsLoggedIn={setIsLoggedIn} setAdmin={setAdmin} /> } />
 
        <Route path="/profile" element={ <Profile /> } />
-       <Route path="/profile/my-bookings" element={ <MyBookings /> } />   
+       <Route path="/profile/my-bookings" element={ <MyBookings /> } />
+
+       <Route path="/profile/admin" element={ <Admin /> } />   
 
        <Route path="/error" element={ <Error /> } />
        <Route path="*" element={ <NotFound /> } />  

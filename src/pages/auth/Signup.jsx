@@ -1,6 +1,6 @@
 //!IMPORTS:
 import {useState} from "react";
-import { useNavigate } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 //import galleryLettersImg from "../assets/gallery-letters.png";
 import {signupService} from "../../services/auth.services.js";
 
@@ -84,6 +84,12 @@ function Signup() {
         <p>{errorMessage}</p>
 
       </form>
+
+      <NavLink to="/login"> 
+          {({isActive})=> {
+            return <button className={ isActive ? "nav-active" : "nav-unactive" }> Already registered? Log In! </button>
+          }} 
+      </NavLink>
     </div>
   )
 }

@@ -20,7 +20,6 @@ function Booking() {
   //!INTERNAL FUNCTIONS:
   const handleFirstName = (e) => {setFirstName(e.target.value)}
   const handleLastName = (e) => {setLastName(e.target.value)}
-  const handleDate = (e) => {setDate(e.target.value)}
   const handleTime = (e) => {setTime(e.target.value)}
   const handleNumberOfPersons = (e) => {setNumberOfPersons(e.target.value)}
 
@@ -49,9 +48,9 @@ function Booking() {
         <input type="text" name="lastName" value={lastName} onChange={handleLastName} />
 
         <label htmlFor="date">Date:</label>
-        <input type="date" name="date" value={date} onChange={handleDate} />
+        <input type="date" name="date" value={date} />
 
-        <label htmlFor="time">Time:</label>
+         <label htmlFor="time">Time:</label>
         <select name="time" value={time} onChange={handleTime}>          
             <option value="">Select One...</option>
             <option value="21:30">21:30</option>
@@ -72,7 +71,7 @@ function Booking() {
 
         <h3>Total: {total} €</h3>
 
-        <ObservatoryCalendar />
+        <ObservatoryCalendar date={date} setDate={setDate} />
 
         
 

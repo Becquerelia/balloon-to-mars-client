@@ -21,8 +21,8 @@ const loginService = (user) => {
     return service.post("/login", user)
 }
 
-const verifyService = () => {
-    return service.get("/verify")
+const verifyService = (adminRole) => {
+    return service.get("/verify", adminRole)
 }
 
 //!EXPORT FUNCTIONS:

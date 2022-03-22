@@ -224,6 +224,11 @@ textarea {
   align-items: center;
 }
 
+.isAdminCheckBox input {
+  width: 2%;
+  margin-top: 2%; 
+}
+
 .eventCards {
   width: 15%;  
   border: 0.15rem solid blue;

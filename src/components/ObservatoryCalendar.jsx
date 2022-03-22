@@ -8,7 +8,9 @@ import { useNavigate } from "react-router-dom"
 import {getAllBookingsService} from "../services/booking.services"
 import RingLoader from "react-spinners/RingLoader";
 
-function ObservatoryCalendar() {
+function ObservatoryCalendar(props) {
+
+  const {date, setDate} = props
 
     const [allBookings, setAllBookings] = useState([])
     const [newBooking, setNewBooking] = useState(null)
@@ -65,7 +67,7 @@ function ObservatoryCalendar() {
         initialView="timeGridWeek"
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, momentPlugin]}
         //dateClick={(e)=>alert(e.dateStr)}
-        dateClick={(e)=>console.log("Fecha seleccionada:" + e.dateStr)}        
+        dateClick={(e)=>setDate(e.dateStr.split("T")[0])}        
         headerToolbar={{
               left: 'prev,next',
               center: 'title',
@@ -79,9 +81,12 @@ function ObservatoryCalendar() {
         startTime: '21:30', 
         endTime: '24:00', 
         }}
+        timeZone="UTC"
         allDaySlot={false}
         slotMinTime="21:30"
         slotMaxTime="24:00"
+        height={300}
+        selectable
         defaultTimedEventDuration='01:00'
         eventDurationEditable={false}
         eventOverlap={false}
