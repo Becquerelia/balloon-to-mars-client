@@ -23,11 +23,9 @@ import Footer from "./components/Footer"
 function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [admin, setAdmin] = useState(false)
 
   useEffect(()=>{ 
-    verifyUser()
-    adminVerify()  
+    verifyUser() 
   }, [])
 
   const verifyUser = async () => {
@@ -38,24 +36,12 @@ function App() {
     catch(err){
       setIsLoggedIn(false);
     }    
-  }
-
-  const adminVerify = async () => {
-    try{
-      await verifyService();
-      // if ( adminRole === "admin"){
-      //   setIsAdmin(true);
-      // }    
-    }
-    catch(err){
-      setAdmin(false);
-    }  
-  }
+  }  
   
   return (
     <div className="App" >
 
-    <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} admin={admin} setAdmin={setAdmin} />
+    <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}  />
 
       <Routes >  
 
@@ -68,7 +54,7 @@ function App() {
        <Route path="/astronomical-events/:id/edit" element={ <AstronomicalEventsEdit /> } />
 
        <Route path="/signup" element={ <Signup /> } />
-       <Route path="/login" element={ <Login setIsLoggedIn={setIsLoggedIn} setAdmin={setAdmin} /> } />
+       <Route path="/login" element={ <Login setIsLoggedIn={setIsLoggedIn}  /> } />
 
        <Route path="/profile" element={ <Profile /> } />
        <Route path="/profile/my-bookings" element={ <MyBookings /> } />

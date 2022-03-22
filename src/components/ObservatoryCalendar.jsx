@@ -64,7 +64,7 @@ function ObservatoryCalendar(props) {
   return (
     <div>
         <FullCalendar 
-        initialView="timeGridWeek"
+        initialView="dayGridMonth"
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, momentPlugin]}
         //dateClick={(e)=>alert(e.dateStr)}
         dateClick={(e)=>setDate(e.dateStr.split("T")[0])}        
@@ -85,7 +85,7 @@ function ObservatoryCalendar(props) {
         allDaySlot={false}
         slotMinTime="21:30"
         slotMaxTime="24:00"
-        height={300}
+        height={600}
         selectable
         defaultTimedEventDuration='01:00'
         eventDurationEditable={false}
