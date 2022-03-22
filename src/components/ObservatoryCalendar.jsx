@@ -31,15 +31,16 @@ function ObservatoryCalendar(props) {
         getAllBookings()
       }, [])
 
-    const getAllBookings = async () => {
+    const getAllBookings = async (e) => {
+      const {time} = e.event._instance.range
         try {
             const response = await getAllBookingsService()
-            //let dateOfBookingsDone
-            //response.data.map((eachBookingDone)=>{
-            //    return dateOfBookingsDone = eachBookingDone.lastname
-            //})
+            let dateOfBookingsDone
+            response.data.forEach((eachBookingDone)=>{
+                return dateOfBookingsDone = eachBookingDone.lastname
+            })
             setAllBookings(response.data)
-            console.log(response.data)
+            console.log(dateOfBookingsDone)
         }
         catch(err){
             if (err.response.status === 401) {

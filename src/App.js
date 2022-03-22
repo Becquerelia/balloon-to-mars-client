@@ -15,6 +15,7 @@ import Login from "./pages/auth/Login.jsx"
 import Profile from "./pages/profile/Profile.jsx"
 import MyBookings from "./pages/profile/MyBookings.jsx"
 import Admin from "./pages/admin/Admin.jsx"
+import AllBookings from "./pages/admin/Admin.jsx"
 import NotFound from "./pages/Errors/NotFound"
 import Error from "./pages/Errors/Error.jsx"
 import Navbar from "./components/Navbar"
@@ -23,6 +24,7 @@ import Footer from "./components/Footer"
 function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [userRole, setUserRole] = useState(null)
 
   useEffect(()=>{ 
     verifyUser() 
@@ -30,8 +32,9 @@ function App() {
 
   const verifyUser = async () => {
     try{
-      await verifyService();
-      setIsLoggedIn(true);   
+      const response = await verifyService();
+      setIsLoggedIn(true);
+      setUserRole(response.data.adminRole)   
     }
     catch(err){
       setIsLoggedIn(false);
@@ -54,12 +57,13 @@ function App() {
        <Route path="/astronomical-events/:id/edit" element={ <AstronomicalEventsEdit /> } />
 
        <Route path="/signup" element={ <Signup /> } />
-       <Route path="/login" element={ <Login setIsLoggedIn={setIsLoggedIn}  /> } />
+       <Route path="/login" element={ <Login setIsLoggedIn={setIsLoggedIn} userRole={userRole} verifyUser={verifyUser} /> } />
 
        <Route path="/profile" element={ <Profile /> } />
        <Route path="/profile/my-bookings" element={ <MyBookings /> } />
 
-       <Route path="/profile/admin" element={ <Admin /> } />   
+       <Route path="/profile/admin" element={ <Admin /> } />
+       <Route path="/profile/admin/all-bookings" element={ <AllBookings /> } />   
 
        <Route path="/error" element={ <Error /> } />
        <Route path="*" element={ <NotFound /> } />  

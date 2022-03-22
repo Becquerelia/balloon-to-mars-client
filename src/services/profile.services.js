@@ -21,9 +21,14 @@ const getMyBookingsService = () => {
     return service.get("/my-bookings")   
 }
 
+const getBookingsService = () => {
+    return service.get("/admin/all-bookings")    
+}
+
 //!EXPORT FUNCTIONS:
 
 export {
     getProfileService,   
-    getMyBookingsService
+    getMyBookingsService,
+    getBookingsService
 }

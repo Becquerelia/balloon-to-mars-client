@@ -3,11 +3,12 @@ import {useState} from "react";
 import {NavLink, useNavigate} from "react-router-dom"
 //import galleryLettersImg from "../assets/gallery-letters.png";
 import {loginService} from "../../services/auth.services.js";
+import {verifyService} from "../../services/auth.services"
 
 //!MAIN FUNCTION:
 function Login(props) {
 
-  const {setIsLoggedIn} = props
+  const {setIsLoggedIn, userRole, verifyUser} = props
 
   //!CONSTANTS & HOOKS:
   const [email, setEmail] = useState("")
@@ -29,7 +30,9 @@ function Login(props) {
       const {authToken} = response.data
       localStorage.setItem("authToken", authToken)
       setIsLoggedIn(true)
-        if (isAdmin === true){
+      const responseVerify = await verifyService()
+      //verifyUser()
+        if (isAdmin === true && responseVerify.data.adminRole === "admin"){
           navigate("/profile/admin")        
         } else {
           navigate("/profile")

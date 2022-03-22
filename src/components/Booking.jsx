@@ -48,7 +48,7 @@ function Booking() {
         <input type="text" name="lastName" value={lastName} onChange={handleLastName} />
 
         <label htmlFor="date">Date:</label>
-        <input type="date" name="date" value={date} />
+        <input type="date" name="date" value={date} readOnly />
 
          <label htmlFor="time">Time:</label>
         <select name="time" value={time} onChange={handleTime}>          
