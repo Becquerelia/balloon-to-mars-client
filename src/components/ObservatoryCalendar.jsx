@@ -11,7 +11,7 @@ import RingLoader from "react-spinners/RingLoader";
 
 function ObservatoryCalendar(props) {
 
-  const {date, setDate} = props
+  const {setDate} = props
 
     const [allBookings, setAllBookings] = useState([])
    
@@ -26,7 +26,7 @@ function ObservatoryCalendar(props) {
             const response = await getAllBookingsService()
             // let dateOfBookingsDone
             // response.data.map((eachBookingDone)=>{
-            //     return dateOfBookingsDone = eachBookingDone.time
+            //     return dateOfBookingsDone = eachBookingDone.date.toISOString()
             // })
             setAllBookings(response.data)
             console.log(response.data)

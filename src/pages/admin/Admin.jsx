@@ -3,11 +3,14 @@ import AdminSideBar from "../../components/AdminSideBar"
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
 import {getProfileService} from "../../services/profile.services"
+import {deleteUserService} from "../../services/profile.services"
 import RingLoader from "react-spinners/RingLoader";
 
+//!MAIN FUNCTION:
+function Admin(props) {
 
-function Admin() {
     //!CONSTANTS & HOOKS:
+    const {isLoggedIn, setIsLoggedIn} = props
     const [userInfo, setUserInfo] = useState(null)
     const navigate = useNavigate()
     
@@ -30,6 +33,19 @@ function Admin() {
         }      
       }
     }
+
+  //FUNCTION TO DELETE AN USER
+  const handleDelete = async () => {
+    try {
+      await deleteUserService()
+      setIsLoggedIn(false);
+      localStorage.removeItem("authToken");
+      navigate("/signup")
+    }
+    catch(err){
+      navigate("/error")
+    }
+  }
   
     //!LOADING SYSTEM:
     if(!userInfo){ 
@@ -47,6 +63,7 @@ function Admin() {
       <AdminSideBar />
       <div className="card-profile" >
         <h1>Welcome, admin {userInfo.username}!</h1>
+        <button id="event-btn" onClick={handleDelete} >Delete User Account</button>
       </div>
 
     </div>

@@ -21,6 +21,10 @@ const getMyBookingsService = () => {
     return service.get("/my-bookings")   
 }
 
+const deleteUserService = () =>{
+    return service.delete("/")
+}
+
 const getBookingsService = () => {
     return service.get("/admin/all-bookings")    
 }
@@ -30,5 +34,6 @@ const getBookingsService = () => {
 export {
     getProfileService,   
     getMyBookingsService,
+    deleteUserService,
     getBookingsService
 }

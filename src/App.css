@@ -300,6 +300,10 @@ h2 {
   border-radius: 2rem;  
 }
 
+.paymentStyles{
+  display: flex;
+  flex-direction: column;
+}
 
 @media (max-width: 1030px) {
   #btn-left {

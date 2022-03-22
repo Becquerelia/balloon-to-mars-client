@@ -59,10 +59,10 @@ function App() {
        <Route path="/signup" element={ <Signup /> } />
        <Route path="/login" element={ <Login setIsLoggedIn={setIsLoggedIn} userRole={userRole} verifyUser={verifyUser} /> } />
 
-       <Route path="/profile" element={ <Profile /> } />
+       <Route path="/profile" element={ <Profile isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /> } />
        <Route path="/profile/my-bookings" element={ <MyBookings /> } />
 
-       <Route path="/profile/admin" element={ <Admin /> } />
+       <Route path="/profile/admin" element={ <Admin isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /> } />
        <Route path="/profile/admin/all-bookings" element={ <AllBookings /> } />   
 
        <Route path="/error" element={ <Error /> } />
