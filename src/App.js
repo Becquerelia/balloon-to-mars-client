@@ -1,7 +1,7 @@
 //IMPORTS:
 import './App.css';
 import { Routes, Route } from "react-router-dom"
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import {verifyService} from "./services/auth.services"
 import Home from "./pages/Home"
 import Observatory from "./pages/Observatory"
@@ -21,10 +21,14 @@ import Error from "./pages/Errors/Error.jsx"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 
+import {LoggedUserContext} from "./context/loggedUser.context"
+
 function App() {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  //const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [userRole, setUserRole] = useState(null)
+
+  const {isLoggedIn, setIsLoggedIn} = useContext(LoggedUserContext)
 
   useEffect(()=>{ 
     verifyUser() 

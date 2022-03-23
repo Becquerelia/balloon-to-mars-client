@@ -1,11 +1,13 @@
 //!IMPORTS:
 import logoImg from "../assets/logo-balloon-to-mars.jpg"
 import { NavLink, useNavigate } from "react-router-dom"
+import {useContext} from "react"
+import {LoggedUserContext} from "../context/loggedUser.context.js"
 
 //!MAIN FUNCTION:
-function Navbar(props) {
+function Navbar() {
 
-  const {isLoggedIn, setIsLoggedIn} = props
+  const {isLoggedIn, setIsLoggedIn} = useContext(LoggedUserContext)
   const navigate = useNavigate()
 
   const handleLogOut = () => {

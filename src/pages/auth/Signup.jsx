@@ -3,6 +3,7 @@ import {useState} from "react";
 import { NavLink, useNavigate } from "react-router-dom"
 //import galleryLettersImg from "../assets/gallery-letters.png";
 import {signupService} from "../../services/auth.services.js";
+import {sendEmailService} from "../../services/sendemail.services"
 
 //!MAIN FUNCTION:
 function Signup() {
@@ -22,7 +23,8 @@ function Signup() {
     e.preventDefault()
     const user = {username, email, password, country, city}
     try {
-      await signupService(user)
+      await signupService(user);
+      await sendEmailService();
       navigate("/login")
     } 
     catch(err){
