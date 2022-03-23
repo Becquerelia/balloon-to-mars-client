@@ -13,6 +13,8 @@ import AstronomicalEventsEdit from "./pages/AstronomicalEventsEdit"
 import Signup from "./pages/auth/Signup"
 import Login from "./pages/auth/Login.jsx"
 import Profile from "./pages/profile/Profile.jsx"
+import UpdateAccount from "./pages/profile/UpdateAccount.jsx"
+import DeleteAccount from "./pages/profile/DeleteAccount.jsx"
 import MyBookings from "./pages/profile/MyBookings.jsx"
 import Admin from "./pages/admin/Admin.jsx"
 import AllBookings from "./pages/admin/AllBookings.jsx"
@@ -65,6 +67,8 @@ function App() {
 
        <Route path="/profile" element={ <Profile isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /> } />
        <Route path="/profile/my-bookings" element={ <MyBookings /> } />
+       <Route path="/profile/update-account" element={ <UpdateAccount /> } />
+       <Route path="/profile/delete-account" element={ <DeleteAccount /> } />
 
        <Route path="/profile/admin" element={ <Admin isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /> } />
        <Route path="/profile/admin/all-bookings" element={ <AllBookings /> } />   

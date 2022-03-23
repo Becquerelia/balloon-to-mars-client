@@ -7,6 +7,7 @@ import {LoggedUserContext} from "../context/loggedUser.context.js"
 //!MAIN FUNCTION:
 function Navbar() {
 
+  //!CONSTANTS & HOOKS:
   const {isLoggedIn, setIsLoggedIn} = useContext(LoggedUserContext)
   const navigate = useNavigate()
 

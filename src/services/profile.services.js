@@ -22,7 +22,11 @@ const getMyBookingsService = () => {
 }
 
 const deleteUserService = () =>{
-    return service.delete("/")
+    return service.delete("/delete")
+}
+
+const editUserService = (updateUser) =>{
+    return service.patch("/edit", updateUser)
 }
 
 const getBookingsService = () => {
@@ -35,5 +39,6 @@ export {
     getProfileService,   
     getMyBookingsService,
     deleteUserService,
-    getBookingsService
+    getBookingsService,
+    editUserService
 }

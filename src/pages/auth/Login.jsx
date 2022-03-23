@@ -81,11 +81,7 @@ function Login(props) {
 
       </form>
 
-        <NavLink to="/signup"> 
-          {({isActive})=> {
-            return <button className={ isActive ? "nav-active" : "nav-unactive" }> Not registered yet? Sign Up! </button>
-          }} 
-        </NavLink>
+        <NavLink to="/signup"><button className="toLog-toSignup-btn"> Not registered yet? Sign Up! </button></NavLink>
     </div>
   )
 }

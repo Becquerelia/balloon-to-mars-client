@@ -89,11 +89,7 @@ function Signup() {
 
       </form>
 
-      <NavLink to="/login"> 
-          {({isActive})=> {
-            return <button className={ isActive ? "nav-active" : "nav-unactive" }> Already registered? Log In! </button>
-          }} 
-      </NavLink>
+      <NavLink to="/login"> <button className="toLog-toSignup-btn" > Already registered? Log In! </button></NavLink>
     </div>
   )
 }

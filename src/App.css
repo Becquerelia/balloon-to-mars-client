@@ -88,9 +88,10 @@ button:hover {
 }
 
 .my-profile {
+  width: 80rem;
   border: 0.3rem solid blue;
   border-radius: 1rem;
-  margin: 2rem;
+  margin: 5rem auto 5rem 30rem;
   display: flex;
   flex-direction: row;  
 }
@@ -234,6 +235,11 @@ textarea {
   border-radius: 999px;
 }
 
+.toLog-toSignup-btn {
+  width: 10%;
+  border-radius: 999px;
+}
+
 .formDisposition {
   display: flex;
   flex-direction: column;
@@ -343,7 +349,7 @@ h5 {
   align-items: center;
 }
 
-@media (max-width: 1030px) {
+@media (max-width: 1500px) {
   #btn-left {
     margin-left: 0px;
     border-top-left-radius: 0rem;

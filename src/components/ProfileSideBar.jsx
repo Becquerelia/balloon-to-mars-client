@@ -1,8 +1,8 @@
-import { NavLink } from "react-router-dom"
-import profileImg from "../assets/profileIcon.png"
+import {useNavigate, NavLink } from "react-router-dom"
 
 
 function ProfileSideBar() {
+    
   return (
     <div className="side-bar" >
         <NavLink to="/profile" end > 
@@ -14,9 +14,19 @@ function ProfileSideBar() {
             )
           }} 
         </NavLink>
-        <NavLink to="/profile/my-bookings"> 
+        <NavLink to="/profile/my-bookings" end> 
           {({isActive})=> {
             return <button id="sidebar-btn" className={ isActive ? "nav-active" : "nav-unactive" }> Bookings </button>
+          }} 
+        </NavLink>
+        <NavLink to={`/profile/update-account`} end> 
+          {({isActive})=> {
+            return <button id="sidebar-btn" className={ isActive ? "nav-active" : "nav-unactive" }> Edit User </button>
+          }} 
+        </NavLink>
+        <NavLink to="/profile/delete-account" end> 
+          {({isActive})=> {
+            return <button id="sidebar-btn" className={ isActive ? "nav-active" : "nav-unactive" }> Delete Account </button>
           }} 
         </NavLink>
     </div>

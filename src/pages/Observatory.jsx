@@ -65,11 +65,7 @@ function Observatory() {
           </div>
         }
         {!isLoggedIn &&
-          <NavLink to="/login"> 
-          {({isActive})=> {
-            return <button className={ isActive ? "nav-active" : "nav-unactive" }> Please login to booking your visit </button>
-          }} 
-          </NavLink>
+          <NavLink to="/login"> <button className="toLog-toSignup-btn"> Please login to booking your visit </button></NavLink>
         }        
       </div>
     </div>

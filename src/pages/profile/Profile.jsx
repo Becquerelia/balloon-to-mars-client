@@ -63,7 +63,12 @@ function Profile(props) {
       <ProfileSideBar />
       <div className="card-profile" >
         <h1>Welcome, {userInfo.username}!</h1>
-        <button id="event-btn" onClick={handleDelete} >Delete User Account</button>
+        <div>
+          <h3>Your user info:</h3>
+          <p>Email: {userInfo.email}</p>
+          <p>City: {userInfo.city}</p>
+          <p>Country: {userInfo.country}</p>          
+        </div>        
       </div>
 
     </div>
