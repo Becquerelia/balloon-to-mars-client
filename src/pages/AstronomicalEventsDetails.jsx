@@ -11,6 +11,7 @@ import eclipseImg from "../assets/eclipse.jpg";
 import nebulosaImg from "../assets/nebulosa.jpg";
 import RingLoader from "react-spinners/RingLoader";
 import Forum from "../components/Forum"
+import { textAlign } from "@mui/system";
 
 //!MAIN FUNCTION:
 function AstronomicalEventsDetails() {
@@ -20,6 +21,11 @@ function AstronomicalEventsDetails() {
   const [eventDetails, setEventDetails] = useState(null)
   const {isLoggedIn} = useContext(LoggedUserContext)
   const navigate = useNavigate()
+
+  const paragraph = {
+    width:"55%",
+    textAlign:"center"
+  }
 
   useEffect(()=>{
     getEventDetails()
@@ -69,13 +75,13 @@ function AstronomicalEventsDetails() {
           {eventDetails.image === "Moon" ? <img src={moonImg} width="200rem" /> : eventDetails.image === "Planets" ? <img src={planetsImg} width="200rem" /> : eventDetails.image === "Meteor Shower" ? <img src={meteorShowerImg} width="200rem" /> : eventDetails.image === "Eclipse" ? <img src={eclipseImg} width="200rem" /> : <img src={nebulosaImg} width="200rem" /> }
           <p>Date: {eventDetails.date.split("T")[0]}</p> 
           <p>Time: {eventDetails.hour}</p>
-          <p>{eventDetails.description}</p>                   
+          <p style={paragraph}>{eventDetails.description}</p>                   
           <h5>Visible from: <b>{eventDetails.visibility}</b></h5>
           {isLoggedIn  && 
-           <div>
-              <button id="event-btn" onClick={handleClick} >Delete Event</button>
+           <div className="eventDetailsBtn">
+              <button id="event-detail-btn" onClick={handleClick} >Delete Event</button>
               <Link to={`/astronomical-events/${eventDetails._id}/edit`} >
-              <button id="event-btn" >Update Event</button>
+              <button id="event-detail-btn" >Update Event</button>
               </Link>
            </div>
           }

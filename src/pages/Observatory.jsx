@@ -17,6 +17,10 @@ function Observatory() {
   const [showForm, setShowForm] = useState(false)
   const {isLoggedIn} = useContext(LoggedUserContext)
 
+  const paragraph = {
+    width:"60%"
+  }
+
   //!RENDER VIEW:
   return (
     <div>
@@ -34,11 +38,11 @@ function Observatory() {
             <div className="addressAndPhone" >
             <div className="address" >
               <img src={addressIcon} height="5%" width="5%" alt="addressIcon" />
-              <p>Avenida del Monte, s/n</p>
+              <p style={paragraph}>Avenida del Monte, s/n</p>
             </div>
             <div className="phoneContact">
               <img src={phoneIcon} height="5%" width="5%" alt="phoneIcon" />
-              <p>Phone: +34 916 305 555</p>
+              <p style={paragraph}>Phone: +34 916 305 555</p>
             </div>
             </div>             
           </div>

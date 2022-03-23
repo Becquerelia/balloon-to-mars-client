@@ -11,6 +11,10 @@ function Gallery() {
   //!CONSTANTS & HOOKS:
   const [allImages, setAllImages] = useState(null)
   const navigate = useNavigate()
+
+  const paragraph = {
+    width:"60%"
+  }
   
   useEffect(()=>{
     getAllImages()
@@ -43,7 +47,13 @@ function Gallery() {
     <div>
       <img src={galleryLettersImg} alt="Logo" width="700rem"/>
       <div className="curiosityCamerasText">
-        <p>The rover has seventeen camera "eyes." Some in rover navigation, while others perform science investigations. Each camera has an application-specific set of optics: engineering cameras FHAZ (Hazard Avoidance), RHAZ (Rear Hazard Avoidance) & NAVCAM (Navigation Cameras), science cameras MAST, CHEMCAM (Chemistry and Camera Complex) & MAHLI (Mars Hand Lens Imager) and one descent imaging camera called MARDI (Mars Descent Imager).</p>
+        <p style={paragraph}>The Mars Science Laboratory and its rover centerpiece, Curiosity, is the most ambitious Mars mission yet flown by NASA. The rover landed on Mars in 2012 with a primary mission to find out if Mars is, or was, suitable for life. Another objective is to learn more about the Red Planet's environment. The rover has seventeen camera "eyes." Some in rover navigation, while others perform science investigations. <br /> Each camera has an application-specific set of optics: 
+        <ul>
+        <li>⚠️ Engineering cameras <b>FHAZ</b> (Hazard Avoidance), <b>RHAZ</b> (Rear Hazard Avoidance) & <b>NAVCAM</b> (Navigation Cameras).</li>
+        <li>☣️ Science cameras <b>MAST, CHEMCAM</b> (Chemistry and Camera Complex) & <b>MAHLI</b> (Mars Hand Lens Imager).</li>
+        <li>〽️ One descent imaging camera called <b>MARDI</b> (Mars Descent Imager).</li>
+        </ul>
+        </p>
       </div>
       <div className="gallery" >
         {allImages.map((eachImage, index)=>{

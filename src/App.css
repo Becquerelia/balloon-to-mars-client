@@ -18,8 +18,24 @@ body {
   padding:2.5rem;
 }
 
+.welcomeText {
+  text-align: center;
+  margin-top: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
 a {
   text-decoration: none;
+  color: rgb(20, 137, 216)
+}
+
+li {
+  list-style:none;
+  margin: 1%;
 }
 
 button {
@@ -246,10 +262,6 @@ h5 {
   color: silver;
 }
 
-h2 {
-  margin: 2rem;
-}
-
 .eventDetailsPage {
   margin: 5rem 0rem;
   display: flex;
@@ -261,6 +273,11 @@ h2 {
   width: 40%;
   border: 0.3rem solid blue;
   border-radius: 2rem;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 #event-btn {
@@ -270,26 +287,39 @@ h2 {
   border-radius: 2rem;
 }
 
+.eventDetailsBtn{
+  display: flex;
+  flex-direction: row;
+}
+
+#event-detail-btn {  
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 2rem;
+}
+
 .forum {
-  color: black;
-  width: 80%;
-  border: 0.4rem solid blue;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;  
+  border: 0.4rem solid;
   border-radius: 1rem;
   background-color: rgb(211, 203, 203);
 }
 
 .commentaries {
   border: 0.1rem solid black;
+  width: 90%;
   border-radius: 1rem;
-  padding: 1rem;
-  margin: 1rem;
   background-color: antiquewhite; 
   color: black;
-  text-align: justify; 
+  text-align: left; 
 }
 
-.forum-btn {
-  width: 40%;
+.forum-btn {  
   font-size: 100%;
   font-weight: bold;
   color: black;
