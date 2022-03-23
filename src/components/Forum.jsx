@@ -36,10 +36,10 @@ function Forum() {
 //!LOADING SYSTEM:
 if(!allCommentaries){ 
   return (
-    <div>
-      <RingLoader color="#C83B30" size="10rem" />
-      <h2>Loading...</h2>
-    </div>
+    <div className="loadingRing" >
+        <h2>Loading...</h2>
+        <RingLoader color="#C83B30" size="10rem" />
+      </div>
   )
 }
 

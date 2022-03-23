@@ -31,9 +31,9 @@ function MyBookings() {
   //!LOADING SYSTEM:
   if(!allBookings){ 
     return (
-      <div>
-        <RingLoader color="#C83B30" size="10rem" />
+      <div className="loadingRing" >
         <h2>Loading...</h2>
+        <RingLoader color="#C83B30" size="10rem" />
       </div>
     )
   }

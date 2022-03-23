@@ -10,7 +10,7 @@ import RingLoader from "react-spinners/RingLoader";
 function Profile(props) {
   
   //!CONSTANTS & HOOKS:
-  const {isLoggedIn, setIsLoggedIn} = props
+  const {setIsLoggedIn} = props
   const [userInfo, setUserInfo] = useState(null)
   const navigate = useNavigate()
   
@@ -50,9 +50,9 @@ function Profile(props) {
   //!LOADING SYSTEM:
   if(!userInfo){ 
     return (
-      <div>
-        <RingLoader color="#C83B30" size="10rem" />
+      <div className="loadingRing" >
         <h2>Loading...</h2>
+        <RingLoader color="#C83B30" size="10rem" />
       </div>
     )
   }

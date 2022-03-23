@@ -335,6 +335,14 @@ h5 {
   flex-direction: column;
 }
 
+.loadingRing {
+  margin: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 1030px) {
   #btn-left {
     margin-left: 0px;

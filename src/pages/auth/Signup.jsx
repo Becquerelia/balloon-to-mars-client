@@ -81,6 +81,8 @@ function Signup() {
         value={city}
         onChange={(e)=> setCity(e.target.value)} />
         <br />
+        <h4>You will receive an email to confirm the register when you press the button</h4>
+        <br />
         <button id="event-btn" >Submit</button>
         <br />
         <p>{errorMessage}</p>
