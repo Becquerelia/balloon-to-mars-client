@@ -3,7 +3,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from "@fullcalendar/interaction"
 import momentPlugin from "@fullcalendar/moment"
-import esLocale from '@fullcalendar/core/locales/es';
+//import esLocale from '@fullcalendar/core/locales/es';
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from "react-router-dom"
 import {getAllBookingsService} from "../services/booking.services"
@@ -21,16 +21,23 @@ function ObservatoryCalendar(props) {
         getAllBookings()
       }, [])
 
-    const getAllBookings = async (e) => {
+    const getAllBookings = async () => {
         try {
             const response = await getAllBookingsService()
             // let dateOfBookingsDone
             // response.data.map((eachBookingDone)=>{
             //     return dateOfBookingsDone = eachBookingDone.date.toISOString()
             // })
-            setAllBookings(response.data)
-            console.log(response.data)
-        }
+            
+            //setAllBookings(response.data)
+            //console.log(response.data)
+            let resultArr = response.data
+            let cloneArr = [...allBookings]
+            resultArr.map((eachBooking)=>{
+              cloneArr.push(eachBooking.date.split("T")[0])
+              setAllBookings(cloneArr)
+            })        
+          }
         catch(err){
             if (err.response.status === 401) {
                 navigate("/login");
@@ -39,6 +46,17 @@ function ObservatoryCalendar(props) {
             }
         }
     } 
+
+    let usedDates = allBookings.map((eachBooking)=>{
+      return JSON.parse(JSON.stringify({
+        title:"Busy",
+        start: eachBooking,
+        color: "white",
+        textColor: "blue",
+        eventOverlap: false,
+        editable: false
+      }))
+    })
   
   //!LOADING SYSTEM:
   if(!allBookings){ 
@@ -59,13 +77,13 @@ function ObservatoryCalendar(props) {
         //dateClick={(e)=>alert(e.dateStr)}
         dateClick={(e)=>setDate(e.dateStr.split("T")[0])}        
         headerToolbar={{
-              left: 'prev,next',
+              left: 'prev',
               center: 'title',
-              right: 'timeGridWeek,dayGridMonth'
+              right: 'next'
             }}
-        events={allBookings}
+        events={usedDates}
         eventColor= "white"
-        locale={esLocale}        
+        //locale={esLocale}        
         selectMirror={true}
         businessHours= {{
         daysOfWeek: [ 4, 5, 6 ],
@@ -76,7 +94,7 @@ function ObservatoryCalendar(props) {
         allDaySlot={false}
         slotMinTime="21:30"
         slotMaxTime="24:00"
-        height={600}
+        height={500}
         selectable
         defaultTimedEventDuration='01:00'
         eventDurationEditable={false}
