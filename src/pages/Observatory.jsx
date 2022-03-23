@@ -1,5 +1,7 @@
 //!IMPORTS:
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { NavLink } from "react-router-dom"
+import {LoggedUserContext} from "../context/loggedUser.context.js";
 import Booking from "../components/Booking";
 import observatoryLettersImg from "../assets/observatory-letters.png";
 import observatoryImg from "../assets/Observatorios-Las-Campanas-1.jpg";
@@ -13,6 +15,7 @@ function Observatory() {
 
   //!CONSTANTS & HOOKS:
   const [showForm, setShowForm] = useState(false)
+  const {isLoggedIn} = useContext(LoggedUserContext)
 
   //!RENDER VIEW:
   return (
@@ -51,10 +54,19 @@ function Observatory() {
           <p>Visits available every Thursday, Friday & Saturday</p>
           <p>Three time slots available: 21.30 - 22.30 - 23.30 H </p>            
         </div>
-        <div>
-          <button className="formBtn" onClick={() => setShowForm(!showForm)} > {showForm? "Not yet" : "Book your visit"}</button>
-          {showForm && <Booking /> }        
-        </div>
+        {isLoggedIn &&
+          <div>
+            <button className="formBtn" onClick={() => setShowForm(!showForm)} > {showForm? "Not yet" : "Book your visit"}</button>
+            {showForm && <Booking /> }        
+          </div>
+        }
+        {!isLoggedIn &&
+          <NavLink to="/login"> 
+          {({isActive})=> {
+            return <button className={ isActive ? "nav-active" : "nav-unactive" }> Please login to booking your visit </button>
+          }} 
+          </NavLink>
+        }        
       </div>
     </div>
     

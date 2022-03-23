@@ -6,9 +6,10 @@ import planetsImg from "../assets/planetary-conjunction.jpg";
 import eclipseImg from "../assets/eclipse.jpg";
 import nebulosaImg from "../assets/nebulosa.jpg";
 import AddForm from "../components/AddForm";
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom"
-import {getAllEventsService} from "../services/events.services.js"
+import { useEffect, useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import {getAllEventsService} from "../services/events.services.js";
+import {LoggedUserContext} from "../context/loggedUser.context.js";
 import RingLoader from "react-spinners/RingLoader";
 
 //!MAIN FUNCTION:
@@ -17,6 +18,7 @@ function AstronomicalEvents() {
   //!CONSTANTS & HOOKS:
   const [allEvents, setAllEvents] = useState(null)
   const [showForm, setShowForm] = useState(false)
+  const {isLoggedIn} = useContext(LoggedUserContext)
   const navigate = useNavigate()
   
   useEffect(()=>{
@@ -50,10 +52,12 @@ function AstronomicalEvents() {
   return (
     <div>
       <img src={eventsLettersImg} alt="Logo" width="700rem"/>
+      {isLoggedIn &&
       <div>
         <button className="formBtn" onClick={() => setShowForm(!showForm)} > {showForm? "Hide Form" : "Share an Astronomical Event"}</button>
         {showForm && <AddForm getAllEvents={getAllEvents} /> }        
       </div>
+      }
       <div className="eventsDisposition" >
         {allEvents.map((eachEvent)=>{
           return(

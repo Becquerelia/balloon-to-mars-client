@@ -1,7 +1,8 @@
 //!IMPORTS:
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom"
 import { deleteEventService, getEventDetailsService } from "../services/events.services";
+import {LoggedUserContext} from "../context/loggedUser.context.js"
 import eventsLettersImg from "../assets/events-letters.png";
 import moonImg from "../assets/moon.jpg";
 import meteorShowerImg from "../assets/meteor-shower.jpg";
@@ -17,6 +18,7 @@ function AstronomicalEventsDetails() {
   //!CONSTANTS & HOOKS:
   const {id} = useParams()
   const [eventDetails, setEventDetails] = useState(null)
+  const {isLoggedIn} = useContext(LoggedUserContext)
   const navigate = useNavigate()
 
   useEffect(()=>{
@@ -69,10 +71,16 @@ function AstronomicalEventsDetails() {
           <p>Time: {eventDetails.hour}</p>
           <p>{eventDetails.description}</p>                   
           <h5>Visible from: <b>{eventDetails.visibility}</b></h5>
-          <button id="event-btn" onClick={handleClick} >Delete Event</button>
-          <Link to={`/astronomical-events/${eventDetails._id}/edit`} >
-            <button id="event-btn" >Update Event</button>
-          </Link>          
+          {isLoggedIn  && 
+           <div>
+              <button id="event-btn" onClick={handleClick} >Delete Event</button>
+              <Link to={`/astronomical-events/${eventDetails._id}/edit`} >
+              <button id="event-btn" >Update Event</button>
+              </Link>
+           </div>
+          }
+          
+
         </div>      
         <div>
           <Forum />

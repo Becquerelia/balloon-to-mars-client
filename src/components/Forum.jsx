@@ -1,7 +1,8 @@
 //!IMPORTS:
-import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom"
-import {getForumService} from "../services/forum.services"
+import { useEffect, useState, useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import {getForumService} from "../services/forum.services";
+import {LoggedUserContext} from "../context/loggedUser.context.js";
 import AddCommentary from "../components/AddCommentary";
 import RingLoader from "react-spinners/RingLoader";
 
@@ -11,6 +12,7 @@ function Forum() {
   //!CONSTANTS & HOOKS:
   const [allCommentaries, setAllCommentaries] = useState(null)
   const [showForm, setShowForm] = useState(false)
+  const {isLoggedIn} = useContext(LoggedUserContext)
   const {id} = useParams()  
   const navigate = useNavigate()
   
@@ -55,10 +57,13 @@ if(!allCommentaries){
         )
         }        
       })}
-      <div>
-        <button className="forum-btn" onClick={() => setShowForm(!showForm)} > {showForm? "Close" : "Comment"}</button>
-        {showForm && <AddCommentary getAllCommentaries={getAllCommentaries} /> }        
-      </div>            
+      {isLoggedIn &&
+        <div>
+          <button className="forum-btn" onClick={() => setShowForm(!showForm)} > {showForm? "Close" : "Comment"}</button>
+          {showForm && <AddCommentary getAllCommentaries={getAllCommentaries} /> }        
+        </div> 
+      }
+                 
     </div>
   )
 }

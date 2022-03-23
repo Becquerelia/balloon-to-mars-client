@@ -48,7 +48,7 @@ function App() {
   return (
     <div className="App" >
 
-    <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}  />
+    <Navbar />
 
       <Routes >  
 
