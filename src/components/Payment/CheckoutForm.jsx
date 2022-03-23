@@ -5,9 +5,7 @@ import {
   useElements
 } from "@stripe/react-stripe-js";
 
-export default function CheckoutForm(props) {
-
-  const {setIsPayed} = props
+export default function CheckoutForm() {
 
   const stripe = useStripe();
   const elements = useElements();
@@ -32,7 +30,6 @@ export default function CheckoutForm(props) {
       switch (paymentIntent.status) {
         case "succeeded":
           setMessage("Payment succeeded!");
-          setIsPayed(true)
           break;
         case "processing":
           setMessage("Your payment is processing.");
@@ -62,7 +59,7 @@ export default function CheckoutForm(props) {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "http://localhost:3000",
+        return_url: `${process.env.REACT_APP_CLIENT_URL}/profile/my-bookings`,
       },
     });
 
@@ -81,10 +78,10 @@ export default function CheckoutForm(props) {
   };
 
   return (
-    <form id="payment-form" onSubmit={handleSubmit}>
+    <form id="payform" onSubmit={handleSubmit}>
       <PaymentElement id="payment-element" />
       <button disabled={isLoading || !stripe || !elements} id="submit">
-        <span id="button-text">
+        <span id="payform">
           {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
         </span>
       </button>

@@ -23,14 +23,7 @@ function ObservatoryCalendar(props) {
 
     const getAllBookings = async () => {
         try {
-            const response = await getAllBookingsService()
-            // let dateOfBookingsDone
-            // response.data.map((eachBookingDone)=>{
-            //     return dateOfBookingsDone = eachBookingDone.date.toISOString()
-            // })
-            
-            //setAllBookings(response.data)
-            //console.log(response.data)
+            const response = await getAllBookingsService()            
             let resultArr = response.data
             let cloneArr = [...allBookings]
             resultArr.map((eachBooking)=>{

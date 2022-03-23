@@ -3,6 +3,7 @@ import { useState } from "react";
 import {bookVisitService} from "../services/booking.services"
 import { useNavigate } from "react-router-dom"
 import ObservatoryCalendar from "./ObservatoryCalendar";
+import PaymentIntent from "../components/Payment/PaymentIntent"
 
 //!MAIN FUNCTION:
 function Booking() {
@@ -13,6 +14,7 @@ function Booking() {
   const [date, setDate] = useState("")
   const [time, setTime] = useState("")
   const [numberOfPersons, setNumberOfPersons] = useState("")
+  const [payBooking, setPayBooking] = useState(null)
   const total = (15 * numberOfPersons)
 
   const navigate = useNavigate()
@@ -28,8 +30,9 @@ function Booking() {
     e.preventDefault()
     try {
       const newBooking = {firstName, lastName, date, time, numberOfPersons, price:total}
-      await bookVisitService(newBooking)      
-      navigate("/profile")
+      const response = await bookVisitService(newBooking)
+      setPayBooking(response.data)
+      //navigate("/profile")
     }
     catch(err){
       navigate("/error")
@@ -76,6 +79,9 @@ function Booking() {
         
 
         <button className="formBtn" >Booking!</button>
+        <div className="paymentStyles" > 
+          {payBooking && <PaymentIntent payBooking={payBooking} />}
+        </div>
 
       </form>
     </div>
