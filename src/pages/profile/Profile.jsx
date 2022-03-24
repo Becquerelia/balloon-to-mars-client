@@ -6,9 +6,9 @@ import {getProfileService} from "../../services/profile.services"
 import RingLoader from "react-spinners/RingLoader";
 
 //!MAIN FUNCTION:
-function Profile(props) {
+function Profile() {
   
-  //!CONSTANTS & HOOKS:  
+  //CONSTANTS & HOOKS:  
   const [userInfo, setUserInfo] = useState(null)
   const navigate = useNavigate()
   
@@ -17,10 +17,12 @@ function Profile(props) {
   }, [])
 
   //!INTERNAL FUNCTIONS:
+
+  //FUNCTION TO GET USER INFO FROM BE:
   const getUserInfo = async () => {
     try {
       const response = await getProfileService();
-      console.log(response.data)
+      //console.log(response.data)
       setUserInfo(response.data)      
     }
     catch(err){
@@ -30,10 +32,9 @@ function Profile(props) {
         navigate("/error")
       }      
     }
-  }
-  
+  }  
 
-  //!LOADING SYSTEM:
+  //LOADING SYSTEM:
   if(!userInfo){ 
     return (
       <div className="loadingRing" >
@@ -43,7 +44,7 @@ function Profile(props) {
     )
   }
 
-  //!RENDER VIEW:
+  //RENDER VIEW:
   return (
     <div className="profileBox">
       <div className="my-profile" >      
@@ -54,7 +55,7 @@ function Profile(props) {
           </div>          
           <div className="profileBody">
             <div>
-              <img src={userInfo.imageUrl} alt="userPic" width="250rem" className="avatar" />                          
+              <img src={userInfo.imageUrl} alt="userPic" width="200rem" className="avatar" />                          
             </div>
             <div>
               <h3>Your user info:</h3>
@@ -66,8 +67,7 @@ function Profile(props) {
         </div>
 
        </div>
-    </div>
-    
+    </div>    
   )
 }
 

@@ -9,7 +9,7 @@ import {uploadPicService} from "../../services/upload.services";
 //!MAIN FUNCTION:
 function UpdateAccount() {
 
-  //!CONSTANTS & HOOKS:
+  //CONSTANTS & HOOKS:
   const [picProfileUrl, setPicProfileUrl] = useState("")
   const [image, setImage] = useState(false);
   const [username, setUsername] = useState("")
@@ -25,15 +25,15 @@ function UpdateAccount() {
     
   //!INTERNAL FUNCTIONS:
 
-    //HANDLE FUNCTIONS:
-    const handleUsername = (e) => {setUsername(e.target.value)}
-    const handleEmail = (e) => {setEmail(e.target.value)}
-    const handlePassword = (e) => {setPassword(e.target.value)}
-    const handleCity = (e) => {setCity(e.target.value)}
-    const handleCountry = (e) => {setCountry(e.target.value)}
+  //HANDLE FUNCTIONS:
+  const handleUsername = (e) => {setUsername(e.target.value)}
+  const handleEmail = (e) => {setEmail(e.target.value)}
+  const handlePassword = (e) => {setPassword(e.target.value)}
+  const handleCity = (e) => {setCity(e.target.value)}
+  const handleCountry = (e) => {setCountry(e.target.value)}
 
-   //FUNCTION TO GET USER INFO AND AUTOFILL FORM:
-   const getUserInfo = async () => {
+  //FUNCTION TO GET USER INFO FROM BE AND AUTOFILL FORM:
+  const getUserInfo = async () => {
     try {
       const response = await getProfileService();
       //console.log(response.data)
@@ -68,9 +68,9 @@ function UpdateAccount() {
       .catch(err => console.log("Error while uploading the file: ", err));
   };
       
-   //FUNCTION TO EDIT USER:  
-    const handleSubmit = async (e) =>{    
-      e.preventDefault()  
+  //FUNCTION TO EDIT USER:  
+  const handleSubmit = async (e) =>{    
+    e.preventDefault()  
       try {
         const updateUser = {username, email, password, city, country, picProfileUrl}
         await editUserService(updateUser)
@@ -79,8 +79,9 @@ function UpdateAccount() {
       catch(err){
         navigate("/error")
       }    
-    }
-    
+  }
+  
+  //RENDER VIEW:
   return (
     <div className="profileBox">
      <div className="my-profile" > 
@@ -89,7 +90,7 @@ function UpdateAccount() {
          <h1>Update Account:</h1>
          <div>
             <form onSubmit={handleSubmit} className="formDisposition" >
-              <img src={picProfileUrl} alt="pic" width="250rem" className="avatar"/>
+              <img src={picProfileUrl} alt="pic" width="200rem" className="avatar"/>
               <label htmlFor="pic">Avatar:</label>             
               <input type="file" name="pic" onChange={handleFileUpload} /> 
               

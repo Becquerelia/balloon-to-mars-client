@@ -107,6 +107,7 @@ button:hover {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  margin: 3rem 0rem;
 }
 
 .avatar {

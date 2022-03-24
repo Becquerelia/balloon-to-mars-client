@@ -9,7 +9,7 @@ import RingLoader from "react-spinners/RingLoader";
 //!MAIN FUNCTION:
 function MyBookings() {
 
-  //!CONSTANTS & HOOKS:
+  //CONSTANTS & HOOKS:
   const [userInfo, setUserInfo] = useState(null)
   const [allBookings, setAllBookings] = useState(null)
   
@@ -21,7 +21,7 @@ function MyBookings() {
 
   //!INTERNAL FUNCTIONS:
   
-  //GET USER INFO:
+  //FUNCTION TO GET USER INFO FROM BE:
   const getUserInfo = async () => {
     try {
       const response = await getProfileService();
@@ -41,7 +41,7 @@ function MyBookings() {
     }
   }    
 
-  //!LOADING SYSTEM:
+  //LOADING SYSTEM:
   if(!allBookings){ 
     return (
       <div className="loadingRing" >
@@ -51,7 +51,7 @@ function MyBookings() {
     )
   }
 
-  //!RENDER VIEW:
+  //RENDER VIEW:
   return (
     <div className="profileBox">
       <div className="my-profile" > 
@@ -61,17 +61,16 @@ function MyBookings() {
           <div className="my-bookings">
             {allBookings.map((eachBooking)=>{
               if (eachBooking.user === userInfo._id) {
-                 return(
-                <div key={eachBooking._id} className="oneBooking" >
-                 <p>Booker name: <b>{eachBooking.firstName} {eachBooking.lastName}</b></p>
-                 <p>Date: {eachBooking.date.split("T")[0]}</p>
-                  <p>Time: {eachBooking.time}</p>
-                 <p>Visitants: {eachBooking.numberOfPersons} persons</p>
-                 <p>Total price: {eachBooking.price} €</p>                              
-               </div>
-              )
-              }
-            
+                return(
+                 <div key={eachBooking._id} className="oneBooking" >
+                   <p>Booker name: <b>{eachBooking.firstName} {eachBooking.lastName}</b></p>
+                   <p>Date: {eachBooking.date.split("T")[0]}</p>
+                   <p>Time: {eachBooking.time}</p>
+                   <p>Visitants: {eachBooking.numberOfPersons} persons</p>
+                   <p>Total price: {eachBooking.price} €</p>                              
+                  </div>
+                )
+              }            
             })}
           </div>  
         </div>

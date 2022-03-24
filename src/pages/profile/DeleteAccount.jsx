@@ -7,11 +7,14 @@ import {LoggedUserContext} from "../../context/loggedUser.context.js"
 
 //!MAIN FUNCTION:
 function DeleteAccount() {
-  //!CONSTANTS & HOOKS:
+  
+  //CONSTANTS & HOOKS:
   const {setIsLoggedIn} = useContext(LoggedUserContext)
   const navigate = useNavigate()
 
-  //FUNCTION TO DELETE AN USER
+  //!INTERNAL FUNCTIONS:
+
+  //FUNCTION TO DELETE AN USER FROM DB:
   const handleDelete = async () => {
     try {
       await deleteUserService()
@@ -24,7 +27,7 @@ function DeleteAccount() {
     }
   }
 
-  //!RENDER VIEW:
+  //RENDER VIEW:
   return (
     <div className="profileBox">
       <div className="my-profile" > 
