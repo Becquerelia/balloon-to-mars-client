@@ -9,6 +9,7 @@ import addressIcon from "../assets/SeekPng.com_address-png_2048143.png";
 import phoneIcon from "../assets/phone.png";
 import emailIcon from "../assets/emailBlue.png";
 import ObservatoryMap from "../components/ObservatoryMap";
+import Collapse from '@mui/material/Collapse';
 
 //!MAIN FUNCTION:
 function Observatory() {
@@ -61,7 +62,7 @@ function Observatory() {
         {isLoggedIn &&
           <div>
             <button className="formBtn" onClick={() => setShowForm(!showForm)} > {showForm? "Not yet" : "Book your visit"}</button>
-            {showForm && <Booking /> }        
+            <Collapse in={showForm} > <Booking /> </Collapse>                   
           </div>
         }
         {!isLoggedIn &&

@@ -11,6 +11,7 @@ import { Link, useNavigate } from "react-router-dom";
 import {getAllEventsService} from "../services/events.services.js";
 import {LoggedUserContext} from "../context/loggedUser.context.js";
 import RingLoader from "react-spinners/RingLoader";
+import Collapse from '@mui/material/Collapse';
 
 //!MAIN FUNCTION:
 function AstronomicalEvents() {
@@ -64,7 +65,7 @@ function AstronomicalEvents() {
       {isLoggedIn &&
       <div>
         <button className="formBtn" onClick={() => setShowForm(!showForm)} > {showForm? "Hide Form" : "Share an Astronomical Event"}</button>
-        {showForm && <AddForm getAllEvents={getAllEvents} /> }        
+        <Collapse in={showForm} > <AddForm getAllEvents={getAllEvents} /> </Collapse>                
       </div>
       }
       <div className="eventsDisposition" >
