@@ -16,8 +16,7 @@ function MyBookings() {
   const navigate = useNavigate()
   
   useEffect(()=>{
-    getUserInfo()
-    getAllBookings()   
+    getUserInfo()  
   }, [])
 
   //!INTERNAL FUNCTIONS:
@@ -27,7 +26,11 @@ function MyBookings() {
     try {
       const response = await getProfileService();
       console.log(response.data)
-      setUserInfo(response.data)      
+      setUserInfo(response.data) 
+      
+      const responseBooking = await getMyBookingsService();
+      console.log(responseBooking.data)
+      setAllBookings(responseBooking.data)   
     }
     catch(err){
       if(err.response.status === 401){
@@ -36,19 +39,7 @@ function MyBookings() {
         navigate("/error")
       }      
     }
-  }
-
-    //GET USER'S BOOKINGS:
-  const getAllBookings = async () => {
-    try {
-      const response = await getMyBookingsService();
-      console.log(response.data)
-      setAllBookings(response.data)      
-    }
-    catch(err){
-      navigate("/error")
-    }
-  }
+  }    
 
   //!LOADING SYSTEM:
   if(!allBookings){ 

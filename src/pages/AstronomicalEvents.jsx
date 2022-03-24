@@ -19,6 +19,7 @@ function AstronomicalEvents() {
   const [allEvents, setAllEvents] = useState(null)
   const [showForm, setShowForm] = useState(false)
   const {isLoggedIn} = useContext(LoggedUserContext)
+  //const today = Date.now()
   const navigate = useNavigate()
   
   useEffect(()=>{
@@ -67,7 +68,10 @@ function AstronomicalEvents() {
                 <h5>{eachEvent.title}</h5>
                 <h6>{eachEvent.date.split("T")[0]}</h6>
                 <p>{eachEvent.visibility}</p> 
-              </Link>                         
+              </Link>
+              {/* if (eachEvent.date < today){
+                <p>This event has already happened</p>
+                }                          */}
             </div>
           )
         })}
