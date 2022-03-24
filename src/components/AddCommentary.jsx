@@ -33,8 +33,8 @@ function AddCommentary(props) {
       
   //!RENDER VIEW:      
   return (
-    <div>
-        <form onSubmit={handleSubmit} className="formDisposition" >
+    <div className="addCommentaryBox">
+        <form onSubmit={handleSubmit} className="addCommentaryArea" >
 
             <textarea name="text" cols="60" rows="5" value={text} onChange={handleText}></textarea>
 

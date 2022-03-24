@@ -275,10 +275,11 @@ h5 {
 }
 
 .eventDetailsPage {
-  margin: 5rem 0rem;
+  margin: 5% 0%;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;  
+  justify-content: space-around;
+
 }
 
 .eventDetailsCard {
@@ -310,32 +311,51 @@ h5 {
   border-radius: 2rem;
 }
 
+.forumSection {
+  display: flex;
+  justify-content: center;
+  min-height: 45%;
+  max-width: 40%;  
+}
+
 .forum {
-  width: 90%;
+  min-width: 50%;
+  color: black;  
+  background-color: antiquewhite;
+  border: 0.4rem solid;
+  border-radius: 1rem;
+}
+
+.forumSpace {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: black;  
-  border: 0.4rem solid;
-  border-radius: 1rem;
-  background-color: rgb(211, 203, 203);
 }
 
 .commentaries {
   border: 0.1rem solid black;
   width: 90%;
   border-radius: 1rem;
-  background-color: antiquewhite; 
+  background-color: rgb(245, 241, 236); 
   color: black;
   text-align: left; 
+}
+
+.addCommentaryArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: antiquewhite;
+  border-radius: 2rem; 
 }
 
 .forum-btn {  
   font-size: 100%;
   font-weight: bold;
   color: black;
-  background-color: antiquewhite;  
+  background-color: rgb(245, 241, 236); 
   padding: 1.5%;
   margin: 3%;
   border-color: black;

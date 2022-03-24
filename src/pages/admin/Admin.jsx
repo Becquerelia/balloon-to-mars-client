@@ -59,13 +59,14 @@ function Admin(props) {
   
     //!RENDER VIEW:
   return (
-    <div className="my-profile" >      
-      <AdminSideBar />
-      <div className="card-profile" >
-        <h1>Welcome, admin {userInfo.username}!</h1>
-        <button id="event-btn" onClick={handleDelete} >Delete User Account</button>
+    <div className="profileBox">
+      <div className="my-profile" >      
+        <AdminSideBar />
+        <div className="card-profile" >
+          <h1>Welcome, admin {userInfo.username}!</h1>
+          <button id="event-btn" onClick={handleDelete} >Delete Admin Account</button>
+        </div>
       </div>
-
     </div>
   )
 }

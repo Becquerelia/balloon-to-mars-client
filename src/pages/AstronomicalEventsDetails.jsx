@@ -69,7 +69,8 @@ function AstronomicalEventsDetails() {
   return (
     <div>
       <img src={eventsLettersImg} alt="Logo" width="700rem"/>
-      <div className="eventDetailsPage">   
+      <div className="eventDetailsPage">
+        
         <div className="eventDetailsCard" >         
           <h2>{eventDetails.title}</h2>
           {eventDetails.image === "Moon" ? <img src={moonImg} width="200rem" /> : eventDetails.image === "Planets" ? <img src={planetsImg} width="200rem" /> : eventDetails.image === "Meteor Shower" ? <img src={meteorShowerImg} width="200rem" /> : eventDetails.image === "Eclipse" ? <img src={eclipseImg} width="200rem" /> : <img src={nebulosaImg} width="200rem" /> }
@@ -85,12 +86,13 @@ function AstronomicalEventsDetails() {
               </Link>
            </div>
           }
-          
+        </div>
 
-        </div>      
-        <div>
+        <div className="forumSection">
           <Forum />
         </div>
+
+      
       </div>
     </div>
   )

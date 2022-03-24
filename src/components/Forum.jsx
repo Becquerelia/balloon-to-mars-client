@@ -46,6 +46,7 @@ if(!allCommentaries){
 //!RENDER VIEW:
   return (
     <div className="forum" >
+    <div className="forumSpace" >
       <h2>Event Forum</h2>
       {allCommentaries.map((eachCommentary)=>{
         if (eachCommentary.event === id){
@@ -64,6 +65,7 @@ if(!allCommentaries){
         </div> 
       }
                  
+    </div>
     </div>
   )
 }
