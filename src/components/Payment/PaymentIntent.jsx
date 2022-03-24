@@ -16,7 +16,7 @@ export default function PaymentIntent(props) {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("http://localhost:5005/api/observatory/create-payment-intent", {
+    fetch(`${process.env.REACT_APP_SERVER_URL}/observatory/create-payment-intent`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ item: payBooking }),

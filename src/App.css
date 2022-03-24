@@ -88,12 +88,13 @@ button:hover {
 }
 
 .my-profile {
-  width: 80rem;
+  width: 60%;
   border: 0.3rem solid blue;
+  margin: 1%;
   border-radius: 1rem;
-  margin: 5rem auto 5rem 30rem;
   display: flex;
-  flex-direction: row;  
+  flex-direction: row;
+  align-items: center;
 }
 
 .card-profile{
