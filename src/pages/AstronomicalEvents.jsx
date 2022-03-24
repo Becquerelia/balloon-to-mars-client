@@ -19,7 +19,15 @@ function AstronomicalEvents() {
   const [allEvents, setAllEvents] = useState(null)
   const [showForm, setShowForm] = useState(false)
   const {isLoggedIn} = useContext(LoggedUserContext)
-  //const today = Date.now()
+
+  let today = Date.now()
+  let actualDate = new Date(today)
+  let actualDateStr = actualDate.toISOString()
+
+  const alertMessageColor = {
+    color:"red"
+  }
+  
   const navigate = useNavigate()
   
   useEffect(()=>{
@@ -67,11 +75,13 @@ function AstronomicalEvents() {
                 {eachEvent.image === "Moon" ? <img src={moonImg} className="imageCardEvent" /> : eachEvent.image === "Planets" ? <img src={planetsImg} className="imageCardEvent" /> : eachEvent.image === "Meteor Shower" ? <img src={meteorShowerImg} className="imageCardEvent" /> : eachEvent.image === "Eclipse" ? <img src={eclipseImg} className="imageCardEvent" /> : <img src={nebulosaImg} className="imageCardEvent" /> }                            
                 <h5>{eachEvent.title}</h5>
                 <h6>{eachEvent.date.split("T")[0]}</h6>
-                <p>{eachEvent.visibility}</p> 
+                <p>{eachEvent.visibility}</p>                
+                <p style={alertMessageColor}>{eachEvent.date < actualDateStr && "⚠️This event has already happened"}</p>                          
+
               </Link>
-              {/* if (eachEvent.date < today){
-                <p>This event has already happened</p>
-                }                          */}
+
+              
+                                       
             </div>
           )
         })}
