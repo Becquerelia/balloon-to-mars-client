@@ -52,8 +52,13 @@ if(!allCommentaries){
         if (eachCommentary.event === id){
           return(
           <div key={eachCommentary._id} className="commentaries" >
-            <p>Posted by: <b>{eachCommentary.user.username}</b></p>
-            <p>{eachCommentary.text}</p>
+            <div className="commentaryAvatar" >
+              <img src={eachCommentary.user.imageUrl} alt="avatar" className="avatar" width="50rem"/>
+            </div>
+            <div>
+              <p>Posted by: <b>{eachCommentary.user.username}</b></p>
+              <p>{eachCommentary.text}</p>
+            </div>            
           </div>
         )
         }        

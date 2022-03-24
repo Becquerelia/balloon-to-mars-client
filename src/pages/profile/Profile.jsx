@@ -49,12 +49,19 @@ function Profile(props) {
       <div className="my-profile" >      
         <ProfileSideBar />
         <div className="card-profile" >
-          <h1>Welcome, {userInfo.username}!</h1>
-          <div>
-            <h3>Your user info:</h3>
-           <p>Email: {userInfo.email}</p>
-            <p>City: {userInfo.city}</p>
-            <p>Country: {userInfo.country}</p>          
+          <div>            
+            <h1>Welcome, {userInfo.username}!</h1>            
+          </div>          
+          <div className="profileBody">
+            <div>
+              <img src={userInfo.imageUrl} alt="userPic" width="250rem" className="avatar" />                          
+            </div>
+            <div>
+              <h3>Your user info:</h3>
+              <p>Email: {userInfo.email}</p>
+              <p>City: {userInfo.city}</p>
+              <p>Country: {userInfo.country}</p>  
+            </div>                    
           </div>        
         </div>
 
