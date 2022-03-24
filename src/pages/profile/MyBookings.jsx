@@ -17,7 +17,7 @@ function MyBookings() {
   
   useEffect(()=>{
     getUserInfo()
-    getAllBookings()
+    getAllBookings()   
   }, [])
 
   //!INTERNAL FUNCTIONS:

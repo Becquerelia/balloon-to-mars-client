@@ -18,6 +18,10 @@ function Login(props) {
 
   const navigate = useNavigate()
 
+  const errorMessageColor = {
+    color:"red"
+  }
+
   //!INTERNAL FUNCTIONS:
 
   const handleIsAdmin = (event) => {setIsAdmin(event.target.checked)}
@@ -40,7 +44,7 @@ function Login(props) {
       }
       
     catch(err){
-      if (err?.response?.status === 400) {
+      if (err?.response?.status === 400 || err?.response?.status === 401) {
         setErrorMessage(err.response.data.errorMessage)
       } else {
         navigate("/error")
@@ -74,10 +78,11 @@ function Login(props) {
           <input type="checkbox" name="isAdmin" checked={isAdmin} onChange={handleIsAdmin} />
         </div>
         
+        <br />
+        <p style={errorMessageColor}>{errorMessage}</p>
         <br />        
         <button id="event-btn" >Submit</button>
         <br />
-        <p>{errorMessage}</p>
 
       </form>
 

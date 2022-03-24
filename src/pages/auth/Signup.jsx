@@ -18,6 +18,10 @@ function Signup() {
 
   const navigate = useNavigate()
 
+  const errorMessageColor = {
+    color:"red"
+  }
+
   //!INTERNAL FUNCTIONS:
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -83,10 +87,11 @@ function Signup() {
         <br />
         <h4>You will receive an email to confirm the register when you press the button</h4>
         <br />
+        <p style={errorMessageColor}>{errorMessage}</p>
+        <br />
         <button id="event-btn" >Submit</button>
         <br />
-        <p>{errorMessage}</p>
-
+        
       </form>
 
       <NavLink to="/login"> <button className="toLog-toSignup-btn" > Already registered? Log In! </button></NavLink>

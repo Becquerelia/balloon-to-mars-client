@@ -1,20 +1,24 @@
 //!IMPORTS:
 import ProfileSideBar from "../../components/ProfileSideBar"
-import { useState } from "react";
-import { useNavigate } from "react-router-dom"
-import {editUserService} from "../../services/profile.services"
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import {getProfileService} from "../../services/profile.services";
+import {editUserService} from "../../services/profile.services";
 
 //!MAIN FUNCTION:
 function UpdateAccount() {
 
   //!CONSTANTS & HOOKS:
-    
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [city, setCity] = useState("")
   const [country, setCountry] = useState("")
   const navigate = useNavigate()
+
+  useEffect(()=>{
+    getUserInfo()
+  }, [])
     
   //!INTERNAL FUNCTIONS:
 
@@ -25,9 +29,29 @@ function UpdateAccount() {
     const handleCity = (e) => {setCity(e.target.value)}
     const handleCountry = (e) => {setCountry(e.target.value)}
 
-   
+   //FUNCTION TO GET USER INFO AND AUTOFILL FORM:
+   const getUserInfo = async () => {
+    try {
+      const response = await getProfileService();
+      //console.log(response.data)
+      setUsername(response.data.username)
+      setEmail(response.data.email)
+      setPassword(response.data.password)
+      setCity(response.data.city)
+      setCountry(response.data.country)
+    }      
     
-    //FUNCTION TO EDIT USER:  
+    catch(err){
+      if(err.response.status === 401){
+        navigate("/login")
+      } else {
+        navigate("/error")
+      }      
+    }
+  }
+
+      
+   //FUNCTION TO EDIT USER:  
     const handleSubmit = async (e) =>{    
       e.preventDefault()  
       try {
@@ -53,10 +77,10 @@ function UpdateAccount() {
                 <input type="text" name="username" value={username} onChange={handleUsername} />
 
                  <label htmlFor="email">Email:</label>
-                 <input type="text" name="email" value={email} onChange={handleEmail} />
+                 <input type="email" name="email" value={email} onChange={handleEmail} />
 
-                <label htmlFor="description">Password:</label>
-                  <input type="text" name="email" value={password} onChange={handlePassword} />
+                <label htmlFor="password">Password:</label>
+                  <input type="password" name="password" value={password} onChange={handlePassword} />
 
                 <label htmlFor="city">City:</label>
                <input type="text" name="city" value={city} onChange={handleCity} />
