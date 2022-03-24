@@ -45,7 +45,7 @@ function ObservatoryCalendar(props) {
         title:"Busy",
         start: eachBooking,
         color: "white",
-        textColor: "blue",
+        textColor: "red",
         eventOverlap: false,
         editable: false
       }))
