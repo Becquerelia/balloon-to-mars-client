@@ -26,15 +26,14 @@ function DeleteAccount() {
 
   //!RENDER VIEW:
   return (
-    <div className="my-profile" > 
-      <ProfileSideBar />
-      <div className="card-profile" >
-        <h1>Delete User Account</h1>
-        <h3>Are you sure? This action can't be undone</h3>
-        <button id="event-btn" onClick={handleDelete} >Delete User Account</button>
-      <div>
-          
-        </div>  
+    <div className="profileBox">
+      <div className="my-profile" > 
+        <ProfileSideBar />
+        <div className="card-profile" >
+         <h1>Delete User Account</h1>
+         <h3>Are you sure? This action can't be undone</h3>
+         <button id="event-btn" onClick={handleDelete} >Delete User Account</button>
+        </div>
       </div>
     </div>
   )

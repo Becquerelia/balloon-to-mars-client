@@ -6,13 +6,12 @@ import {
 } from "@stripe/react-stripe-js";
 
 export default function CheckoutForm() {
-
   const stripe = useStripe();
   const elements = useElements();
 
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  
+
   useEffect(() => {
     if (!stripe) {
       return;
@@ -59,7 +58,7 @@ export default function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: `${process.env.REACT_APP_CLIENT_URL}/profile/my-bookings`,
+        return_url: `${process.env.REACT_APP_CLIENT_URL}`,
       },
     });
 
@@ -81,7 +80,7 @@ export default function CheckoutForm() {
     <form id="payform" onSubmit={handleSubmit}>
       <PaymentElement id="payment-element" />
       <button disabled={isLoading || !stripe || !elements} id="submit">
-        <span id="payform">
+        <span id="payspan">
           {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
         </span>
       </button>

@@ -40,23 +40,25 @@ function MyBookings() {
 
   //!RENDER VIEW:
   return (
-    <div className="my-profile" > 
-      <ProfileSideBar />
-      <div className="card-profile" >
-        <h1>Your Bookings:</h1>
-        <div className="my-bookings">
-          {allBookings.map((eachBooking)=>{
-            return(
-              <div key={eachBooking._id} className="oneBooking" >
-                <p>Booker name: <b>{eachBooking.firstName} {eachBooking.lastName}</b></p>
-                <p>Date: {eachBooking.date.split("T")[0]}</p>
-                <p>Time: {eachBooking.time}</p>
-                <p>Visitants: {eachBooking.numberOfPersons} persons</p>
-                <p>Total price: {eachBooking.price} €</p>                              
-              </div>
-            )
-          })}
-        </div>  
+    <div className="profileBox">
+      <div className="my-profile" > 
+        <ProfileSideBar />
+        <div className="card-profile" >
+          <h1>Your Bookings:</h1>
+          <div className="my-bookings">
+            {allBookings.map((eachBooking)=>{
+             return(
+                <div key={eachBooking._id} className="oneBooking" >
+                 <p>Booker name: <b>{eachBooking.firstName} {eachBooking.lastName}</b></p>
+                 <p>Date: {eachBooking.date.split("T")[0]}</p>
+                  <p>Time: {eachBooking.time}</p>
+                 <p>Visitants: {eachBooking.numberOfPersons} persons</p>
+                 <p>Total price: {eachBooking.price} €</p>                              
+               </div>
+              )
+            })}
+          </div>  
+        </div>
       </div>
     </div>
   )

@@ -87,6 +87,12 @@ button:hover {
   font-size: larger;
 }
 
+.profileBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .my-profile {
   width: 60%;
   border: 0.3rem solid blue;
@@ -94,7 +100,6 @@ button:hover {
   border-radius: 1rem;
   display: flex;
   flex-direction: row;
-  align-items: center;
 }
 
 .card-profile{

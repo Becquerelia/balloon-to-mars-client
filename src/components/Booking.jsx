@@ -74,16 +74,16 @@ function Booking() {
 
         <h3>Total: {total} €</h3>
 
-        <ObservatoryCalendar date={date} setDate={setDate} />
+        <ObservatoryCalendar date={date} setDate={setDate} />        
 
-        
+        <button className="formBtn" >Booking!</button>       
 
-        <button className="formBtn" >Booking!</button>
+      </form>
+      
         <div className="paymentStyles" > 
           {payBooking && <PaymentIntent payBooking={payBooking} />}
         </div>
 
-      </form>
     </div>
   )
 }
