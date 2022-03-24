@@ -28,6 +28,10 @@ function AstronomicalEvents() {
   const alertMessageColor = {
     color:"red"
   }
+
+  const todayMessageColor = {
+    color:"green"
+  }
   
   const navigate = useNavigate()
   
@@ -73,12 +77,12 @@ function AstronomicalEvents() {
           return(
             <div key={eachEvent._id} className="eventCards" >
               <Link to={`/astronomical-events/${eachEvent._id}/details`} >
+              <p style={alertMessageColor}>{eachEvent.date.split("T")[0] < actualDateStr.split("T")[0] && "⚠️This event has already happened"}</p>
+                <p style={todayMessageColor}>{eachEvent.date.split("T")[0] === actualDateStr.split("T")[0] && "🕑This event happens today!"}</p>    
                 {eachEvent.image === "Moon" ? <img src={moonImg} className="imageCardEvent" /> : eachEvent.image === "Planets" ? <img src={planetsImg} className="imageCardEvent" /> : eachEvent.image === "Meteor Shower" ? <img src={meteorShowerImg} className="imageCardEvent" /> : eachEvent.image === "Eclipse" ? <img src={eclipseImg} className="imageCardEvent" /> : <img src={nebulosaImg} className="imageCardEvent" /> }                            
                 <h5>{eachEvent.title}</h5>
                 <h6>{eachEvent.date.split("T")[0]}</h6>
-                <p>{eachEvent.visibility}</p>                
-                <p style={alertMessageColor}>{eachEvent.date < actualDateStr && "⚠️This event has already happened"}</p>                          
-
+                <p>{eachEvent.visibility}</p>  
               </Link>
 
               
