@@ -3,14 +3,12 @@ import ProfileSideBar from "../../components/ProfileSideBar"
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
 import {getProfileService} from "../../services/profile.services"
-import {deleteUserService} from "../../services/profile.services"
 import RingLoader from "react-spinners/RingLoader";
 
 //!MAIN FUNCTION:
 function Profile(props) {
   
-  //!CONSTANTS & HOOKS:
-  const {setIsLoggedIn} = props
+  //!CONSTANTS & HOOKS:  
   const [userInfo, setUserInfo] = useState(null)
   const navigate = useNavigate()
   
@@ -33,19 +31,7 @@ function Profile(props) {
       }      
     }
   }
-
-  //FUNCTION TO DELETE AN USER
-  const handleDelete = async () => {
-    try {
-      await deleteUserService()
-      setIsLoggedIn(false);
-      localStorage.removeItem("authToken");
-      navigate("/signup")
-    }
-    catch(err){
-      navigate("/error")
-    }
-  }
+  
 
   //!LOADING SYSTEM:
   if(!userInfo){ 
