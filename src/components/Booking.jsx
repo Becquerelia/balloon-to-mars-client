@@ -1,14 +1,14 @@
 //!IMPORTS:
 import { useState } from "react";
-import {bookVisitService} from "../services/booking.services"
-import { useNavigate } from "react-router-dom"
+import {bookVisitService} from "../services/booking.services";
+import { useNavigate } from "react-router-dom";
 import ObservatoryCalendar from "./ObservatoryCalendar";
-import PaymentIntent from "../components/Payment/PaymentIntent"
+import PaymentIntent from "../components/Payment/PaymentIntent";
 
 //!MAIN FUNCTION:
 function Booking() {
 
-  //!CONSTANTS & HOOKS:
+  //CONSTANTS & HOOKS:
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
   const [date, setDate] = useState("")
@@ -16,10 +16,11 @@ function Booking() {
   const [numberOfPersons, setNumberOfPersons] = useState("")
   const [payBooking, setPayBooking] = useState(null)
   const total = (15 * numberOfPersons)
-
   const navigate = useNavigate()
 
   //!INTERNAL FUNCTIONS:
+
+  //HANDLE FUNCTIONS:
   const handleFirstName = (e) => {setFirstName(e.target.value)}
   const handleLastName = (e) => {setLastName(e.target.value)}
   const handleTime = (e) => {setTime(e.target.value)}
@@ -39,7 +40,7 @@ function Booking() {
     }    
   }
   
-  //!RENDER VIEW:  
+  //RENDER VIEW:  
   return (
     <div>
       <form onSubmit={handleSubmit} className="formDisposition" >

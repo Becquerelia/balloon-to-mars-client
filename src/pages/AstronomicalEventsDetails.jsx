@@ -1,8 +1,8 @@
 //!IMPORTS:
 import { useEffect, useState, useContext } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom"
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { deleteEventService, getEventDetailsService } from "../services/events.services";
-import {LoggedUserContext} from "../context/loggedUser.context.js"
+import {LoggedUserContext} from "../context/loggedUser.context.js";
 import eventsLettersImg from "../assets/events-letters.png";
 import moonImg from "../assets/moon.jpg";
 import meteorShowerImg from "../assets/meteor-shower.jpg";
@@ -10,13 +10,12 @@ import planetsImg from "../assets/planetary-conjunction.jpg";
 import eclipseImg from "../assets/eclipse.jpg";
 import nebulosaImg from "../assets/nebulosa.jpg";
 import RingLoader from "react-spinners/RingLoader";
-import Forum from "../components/Forum"
-import { textAlign } from "@mui/system";
+import Forum from "../components/Forum";
 
 //!MAIN FUNCTION:
 function AstronomicalEventsDetails() {
 
-  //!CONSTANTS & HOOKS:
+  //CONSTANTS & HOOKS:
   const {id} = useParams()
   const [eventDetails, setEventDetails] = useState(null)
   const {isLoggedIn} = useContext(LoggedUserContext)
@@ -33,7 +32,7 @@ function AstronomicalEventsDetails() {
 
   //!INTERNAL FUNCTIONS:
   
-    //FUNCTION TO GET EVENT DETAILS
+    //FUNCTION TO GET EVENT DETAILS FROM BE:
     const getEventDetails = async () => {
       try {
         const response = await getEventDetailsService(id)
@@ -44,7 +43,7 @@ function AstronomicalEventsDetails() {
       }
     }
     
-    //FUNCTION TO DELETE AN EVENT
+    //FUNCTION TO REMOVE AN EVENT FROM DB:
     const handleClick = async () => {
       try {
         await deleteEventService(id)
@@ -55,7 +54,7 @@ function AstronomicalEventsDetails() {
       }
     }
 
-  //!LOADING SYSTEM:
+  //LOADING SYSTEM:
   if(!eventDetails){ 
     return (
       <div className="loadingRing" >
@@ -65,10 +64,11 @@ function AstronomicalEventsDetails() {
     )
   }
 
-  //!RENDER VIEW:
+  //RENDER VIEW:
   return (
     <div>
       <img src={eventsLettersImg} alt="Logo" width="700rem"/>
+
       <div className="eventDetailsPage">
         
         <div className="eventDetailsCard" >         
@@ -91,7 +91,6 @@ function AstronomicalEventsDetails() {
         <div className="forumSection">
           <Forum />
         </div>
-
       
       </div>
     </div>

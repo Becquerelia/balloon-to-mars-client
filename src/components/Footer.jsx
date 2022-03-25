@@ -1,6 +1,7 @@
-import lettersImg from "../assets/letters.png"
-
+//!MAIN FUNCTION:
 function Footer() {
+
+  //RENDER VIEW:
   return (
     <div>
       <h4>© 2022 Balloon to Mars</h4>

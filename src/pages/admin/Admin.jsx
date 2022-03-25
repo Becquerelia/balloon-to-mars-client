@@ -1,16 +1,16 @@
 //!IMPORTS:
-import AdminSideBar from "../../components/AdminSideBar"
+import AdminSideBar from "../../components/AdminSideBar";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"
-import {getProfileService} from "../../services/profile.services"
-import {deleteUserService} from "../../services/profile.services"
+import { useNavigate } from "react-router-dom";
+import {getProfileService} from "../../services/profile.services";
+import {deleteUserService} from "../../services/profile.services";
 import RingLoader from "react-spinners/RingLoader";
 
 //!MAIN FUNCTION:
 function Admin(props) {
 
-    //!CONSTANTS & HOOKS:
-    const {isLoggedIn, setIsLoggedIn} = props
+    //CONSTANTS & HOOKS:
+    const {setIsLoggedIn} = props
     const [userInfo, setUserInfo] = useState(null)
     const navigate = useNavigate()
     
@@ -19,6 +19,8 @@ function Admin(props) {
     }, [])
   
     //!INTERNAL FUNCTIONS:
+
+    //FUNCTION TO GET ADMIN PROFILE FROM BE:
     const getUserInfo = async () => {
       try {
         const response = await getProfileService();
@@ -47,17 +49,17 @@ function Admin(props) {
     }
   }
   
-    //!LOADING SYSTEM:
-    if(!userInfo){ 
-      return (
-        <div>
-          <RingLoader color="#C83B30" size="10rem" />
-          <h2>Loading...</h2>
-        </div>
-      )
-    }
+  //LOADING SYSTEM:
+  if(!userInfo){ 
+    return (
+      <div>
+        <RingLoader color="#C83B30" size="10rem" />
+        <h2>Loading...</h2>
+      </div>
+    )
+  }
   
-    //!RENDER VIEW:
+  //RENDER VIEW:
   return (
     <div className="profileBox">
       <div className="my-profile" >      

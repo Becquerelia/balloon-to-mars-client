@@ -1,17 +1,22 @@
+//!IMPORTS:
 import lettersImg from "../assets/letters.png"
 import homeImg from "../assets/homeImage.jpg"
 import {NavLink} from "react-router-dom"
 
+//!MAIN FUNCTION:
 function Home() {
 
+  //CONSTANTS:
   const paragraph = {
     width:"55%"
   }
 
+  //RENDER VIEW:
   return (
     <div>
       
       <img src={lettersImg} alt="Logo" width="750rem"/>
+
       <div className="welcomeText" >
         <p style={paragraph}>Welcome to our website! A little big community to share astronomical knowledge and meet people with same interest in outer space.
         You can take a balloon to visit Mars if you visit our <NavLink to="/image-gallery"> Gallery</NavLink>, where you can see the images taken by the Rover Curiosity during its mission and discover how the surface of the Red Planet is.
@@ -20,10 +25,10 @@ function Home() {
         Moreover, we invite you to share with us the next astronomical events and to participate in our forum by <NavLink to="/signup"> registering</NavLink> on our website.
         Also, we encourage you to come visit our observatory in Madrid, where you can enjoy a unique experience exploring the sky and its constellations through our telescopes. Book your visit now from the <NavLink to="/observatory"> Observatory</NavLink> section!
         </p>
-
                 
         <h3>Don't wait any longer and join our community!🪐✨</h3>      
       </div>
+
       <div>
         <img src={homeImg} alt="homeImage" width="60%" />
       </div>

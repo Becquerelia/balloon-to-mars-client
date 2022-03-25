@@ -1,22 +1,24 @@
 //!IMPORTS:
-import logoImg from "../assets/logo-balloon-to-mars.jpg"
-import { NavLink, useNavigate } from "react-router-dom"
-import {useContext} from "react"
-import {LoggedUserContext} from "../context/loggedUser.context.js"
+import logoImg from "../assets/logo-balloon-to-mars.jpg";
+import { NavLink, useNavigate } from "react-router-dom";
+import {useContext} from "react";
+import {LoggedUserContext} from "../context/loggedUser.context.js";
 
 //!MAIN FUNCTION:
 function Navbar() {
 
-  //!CONSTANTS & HOOKS:
+  //CONSTANTS & HOOKS:
   const {isLoggedIn, setIsLoggedIn} = useContext(LoggedUserContext)
   const navigate = useNavigate()
 
+  //FUNCTION TO LOG OUT:
   const handleLogOut = () => {
     setIsLoggedIn(false);
     localStorage.removeItem("authToken");
     navigate("/login");
   }
 
+  //RENDER VIEW:
   return (
     <div className="navbar">
       <div>

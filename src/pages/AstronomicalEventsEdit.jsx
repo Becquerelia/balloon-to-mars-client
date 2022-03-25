@@ -1,12 +1,12 @@
 //!IMPORTS:
 import { useEffect, useState } from "react";
-import {editEventService, getEventDetailsService} from "../services/events.services.js"
-import { useParams, useNavigate } from "react-router-dom"
+import {editEventService, getEventDetailsService} from "../services/events.services.js";
+import { useParams, useNavigate } from "react-router-dom";
 
 //!MAIN FUNCTION:
 function AstronomicalEventsEdit() {
 
-  //!CONSTANTS & HOOKS:
+  //CONSTANTS & HOOKS:
   const {id} = useParams()
   const navigate = useNavigate()  
   const [title, setTitle] = useState("")
@@ -59,7 +59,7 @@ function AstronomicalEventsEdit() {
       }    
     }
 
-//!RENDER VIEW:
+//RENDER VIEW:
   return (
     <div>
 

@@ -1,14 +1,14 @@
 //!IMPORTS:
-import galleryLettersImg from "../assets/gallery-letters.png"
-import {useState, useEffect} from 'react'
-import {useNavigate} from "react-router-dom"
+import galleryLettersImg from "../assets/gallery-letters.png";
+import {useState, useEffect} from 'react';
+import {useNavigate} from "react-router-dom";
 import RingLoader from "react-spinners/RingLoader";
-import {getAllImagesService} from "../services/gallery.services"
+import {getAllImagesService} from "../services/gallery.services";
 
 //!MAIN FUNCTION:
 function Gallery() {
 
-  //!CONSTANTS & HOOKS:
+  //CONSTANTS & HOOKS:
   const [allImages, setAllImages] = useState(null)
   const navigate = useNavigate()
 
@@ -21,6 +21,8 @@ function Gallery() {
   }, [])
 
   //!INTERNAL FUNCTIONS:
+
+  //FUNCTION TO GET THE GALLERY WITH CURIOSITY API FROM DB:
   const getAllImages = async () => {
     try {
       const response = await getAllImagesService();
@@ -32,7 +34,7 @@ function Gallery() {
     }
   }
 
-  //!LOADING SYSTEM:
+  //LOADING SYSTEM:
   if(!allImages){ 
     return (
       <div className="loadingRing" >
@@ -42,7 +44,7 @@ function Gallery() {
     )
   }
 
-  //!RENDER VIEW:
+  //RENDER VIEW:
   return (
     <div>
       <img src={galleryLettersImg} alt="Logo" width="700rem"/>

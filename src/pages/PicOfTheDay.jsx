@@ -1,14 +1,14 @@
 //!IMPORTS:
-import picDayLettersImg from "../assets/picday-letters.png"
-import {useState, useEffect} from 'react'
-import {useNavigate} from "react-router-dom"
+import picDayLettersImg from "../assets/picday-letters.png";
+import {useState, useEffect} from 'react';
+import {useNavigate} from "react-router-dom";
 import RingLoader from "react-spinners/RingLoader";
-import {getPicOfTheDayService} from "../services/pic-day.services.js"
+import {getPicOfTheDayService} from "../services/pic-day.services.js";
 
 //!MAIN FUNCTION:
 function PicOfTheDay() {
 
-  //!CONSTANTS & HOOKS:
+  //CONSTANTS & HOOKS:
   const [picDay, setPicDay] = useState(null)
   const navigate = useNavigate()
   
@@ -17,6 +17,8 @@ function PicOfTheDay() {
   }, [])
 
   //!INTERNAL FUNCTIONS:
+
+  //FUNCTION TO GET A PIC OF THE DAY USING APOD API FROM BE:
   const getPicDay = async () => {
     try {
       const response = await getPicOfTheDayService();
@@ -28,7 +30,7 @@ function PicOfTheDay() {
     }
   }
 
-  //!LOADING SYSTEM:
+  //LOADING SYSTEM:
   if(!picDay){ 
     return (
       <div className="loadingRing" >
@@ -38,7 +40,7 @@ function PicOfTheDay() {
     )
   }
 
-  //!RENDER VIEW:
+  //RENDER VIEW:
   return (
     <div>
       <img src={picDayLettersImg} alt="Logo" width="700rem"/>

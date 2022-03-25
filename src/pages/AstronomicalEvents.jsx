@@ -16,7 +16,7 @@ import Collapse from '@mui/material/Collapse';
 //!MAIN FUNCTION:
 function AstronomicalEvents() {
 
-  //!CONSTANTS & HOOKS:
+  //CONSTANTS & HOOKS:
   const [allEvents, setAllEvents] = useState(null)
   const [showForm, setShowForm] = useState(false)
   const {isLoggedIn} = useContext(LoggedUserContext)
@@ -52,7 +52,7 @@ function AstronomicalEvents() {
       }
     }
 
-  //!LOADING SYSTEM:
+  //LOADING SYSTEM:
   if(!allEvents){ 
     return (
       <div className="loadingRing" >
@@ -62,16 +62,18 @@ function AstronomicalEvents() {
     )
   }
 
-  //!RENDER VIEW:
+  //RENDER VIEW:
   return (
     <div>
       <img src={eventsLettersImg} alt="Logo" width="700rem"/>
+
       {isLoggedIn &&
       <div>
         <button className="formBtn" onClick={() => setShowForm(!showForm)} > {showForm? "Hide Form" : "Share an Astronomical Event"}</button>
         <Collapse in={showForm} > <AddForm getAllEvents={getAllEvents} /> </Collapse>                
       </div>
       }
+      
       <div className="eventsDisposition" >
         {allEvents.map((eachEvent)=>{
           return(
@@ -83,10 +85,7 @@ function AstronomicalEvents() {
                 <h5>{eachEvent.title}</h5>
                 <h6>{eachEvent.date.split("T")[0]}</h6>
                 <p>{eachEvent.visibility}</p>  
-              </Link>
-
-              
-                                       
+              </Link>                   
             </div>
           )
         })}

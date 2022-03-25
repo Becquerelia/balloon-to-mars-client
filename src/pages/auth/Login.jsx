@@ -1,21 +1,18 @@
 //!IMPORTS:
 import {useState} from "react";
-import {NavLink, useNavigate} from "react-router-dom"
-//import galleryLettersImg from "../assets/gallery-letters.png";
+import {NavLink, useNavigate} from "react-router-dom";
 import {loginService} from "../../services/auth.services.js";
-import {verifyService} from "../../services/auth.services"
+import {verifyService} from "../../services/auth.services";
 
 //!MAIN FUNCTION:
 function Login(props) {
-
-  const {setIsLoggedIn, userRole, verifyUser} = props
-
-  //!CONSTANTS & HOOKS:
+  
+  //CONSTANTS & HOOKS:
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [isAdmin, setIsAdmin] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")
-
+  const {setIsLoggedIn} = props
   const navigate = useNavigate()
 
   const errorMessageColor = {
@@ -24,8 +21,10 @@ function Login(props) {
 
   //!INTERNAL FUNCTIONS:
 
+  //HANDLE FUNCTION FOR ADMIN CHECKBOX:
   const handleIsAdmin = (event) => {setIsAdmin(event.target.checked)}
 
+  //FUNCTION TO GET TOKEN AND LOGIN:
   const handleSubmit = async (e) => {
     e.preventDefault()
     const user = {email, password}
@@ -52,7 +51,7 @@ function Login(props) {
     }    
   }
 
-  //!RENDER VIEW:
+  //RENDER VIEW:
   return (
     <div>
       <form onSubmit={handleSubmit} >

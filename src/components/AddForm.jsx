@@ -1,19 +1,18 @@
 //!IMPORTS:
 import { useState } from "react";
-import {addNewEventService} from "../services/events.services.js"
-import { useNavigate } from "react-router-dom"
+import {addNewEventService} from "../services/events.services.js";
+import { useNavigate } from "react-router-dom";
 
 //!MAIN FUNCTION:
 function AddForm(props) {
 
-  //!CONSTANTS & HOOKS:
+  //CONSTANTS & HOOKS:
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [date, setDate] = useState("")
   const [hour, setHour] = useState("")
   const [visibility, setVisibility] = useState("")
   const [image, setImage] = useState("")
-
   const navigate = useNavigate()
   const {getAllEvents} = props
 
@@ -47,7 +46,7 @@ function AddForm(props) {
       }    
     }
     
-  //!RENDER VIEW:  
+  //RENDER VIEW:  
   return (
     <div>
       

@@ -1,57 +1,62 @@
-import FullCalendar from '@fullcalendar/react'
-import dayGridPlugin from '@fullcalendar/daygrid'
-import timeGridPlugin from '@fullcalendar/timegrid'
-import interactionPlugin from "@fullcalendar/interaction"
-import momentPlugin from "@fullcalendar/moment"
+//!IMPORTS:
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from "@fullcalendar/interaction";
+import momentPlugin from "@fullcalendar/moment";
 //import esLocale from '@fullcalendar/core/locales/es';
 import React, {useState, useEffect} from 'react';
-import { useNavigate } from "react-router-dom"
-import {getAllBookingsService} from "../services/booking.services"
+import { useNavigate } from "react-router-dom";
+import {getAllBookingsService} from "../services/booking.services";
 import RingLoader from "react-spinners/RingLoader";
 
+//!MAIN FUNCTION:
 function ObservatoryCalendar(props) {
 
+  //CONSTANTS & HOOKS:
   const {setDate} = props
-
-    const [allBookings, setAllBookings] = useState([])
-   
-    const navigate = useNavigate()
+  const [allBookings, setAllBookings] = useState([])
+  const navigate = useNavigate()
   
-    useEffect(()=>{
-        getAllBookings()
-      }, [])
+  useEffect(()=>{
+      getAllBookings()
+  }, [])
 
-    const getAllBookings = async () => {
-        try {
-            const response = await getAllBookingsService()            
-            let resultArr = response.data
-            let cloneArr = [...allBookings]
-            resultArr.map((eachBooking)=>{
-              cloneArr.push(eachBooking.date.split("T")[0])
-              setAllBookings(cloneArr)
-            })        
-          }
-        catch(err){
-            if (err.response.status === 401) {
-                navigate("/login");
-            } else {
-                navigate("/error");
-            }
-        }
-    } 
+//!INTERNAL FUNCTIONS:
 
-    let usedDates = allBookings.map((eachBooking)=>{
-      return JSON.parse(JSON.stringify({
-        title:"Busy",
-        start: eachBooking,
-        color: "white",
-        textColor: "red",
-        eventOverlap: false,
-        editable: false
-      }))
-    })
+  //FUNCTION TO GET BUSY DATES FROM BOOKINGS ALREADY DONE:
+  const getAllBookings = async () => {
+    try {
+      const response = await getAllBookingsService()            
+      let resultArr = response.data
+      let cloneArr = [...allBookings]
+      resultArr.map((eachBooking)=>{
+      cloneArr.push(eachBooking.date.split("T")[0])
+      setAllBookings(cloneArr)
+      })        
+    }
+    catch(err){
+      if (err.response.status === 401) {
+        navigate("/login");
+      } else {
+        navigate("/error");
+      }
+    }
+  } 
+
+  //FUNCTION TO RENDER BUSY DATES ON CALENDAR:
+  let usedDates = allBookings.map((eachBooking)=>{
+    return JSON.parse(JSON.stringify({
+      title:"Busy",
+      start: eachBooking,
+      color: "white",
+      textColor: "red",
+      eventOverlap: false,
+      editable: false
+    }))
+  })
   
-  //!LOADING SYSTEM:
+  //LOADING SYSTEM:
   if(!allBookings){ 
     return (
       <div className="loadingRing" >
@@ -61,7 +66,7 @@ function ObservatoryCalendar(props) {
     )
   } 
 
-  //!RENDER VIEW:
+  //RENDER VIEW:
   return (
     <div>
         <FullCalendar 
@@ -76,7 +81,7 @@ function ObservatoryCalendar(props) {
             }}
         events={usedDates}
         eventColor= "white"
-        //locale={esLocale}        
+        //locale={esLocale} (Change calendary language to Spanish)        
         selectMirror={true}
         businessHours= {{
         daysOfWeek: [ 4, 5, 6 ],
@@ -94,8 +99,7 @@ function ObservatoryCalendar(props) {
         eventOverlap={false}
         droppable={true}
         longPressDelay='500'
-        dayMaxEvents={true}
-        //eventContent ={seeBookingOnCalendar}
+        dayMaxEvents={true}        
         />
     </div>
   )

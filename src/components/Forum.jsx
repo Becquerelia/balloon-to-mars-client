@@ -9,7 +9,7 @@ import RingLoader from "react-spinners/RingLoader";
 //!MAIN FUNCTION:
 function Forum() {
   
-  //!CONSTANTS & HOOKS:
+  //CONSTANTS & HOOKS:
   const [allCommentaries, setAllCommentaries] = useState(null)
   const [showForm, setShowForm] = useState(false)
   const {isLoggedIn} = useContext(LoggedUserContext)
@@ -21,6 +21,7 @@ function Forum() {
   }, [])
 
   //!INTERNAL FUNCTIONS:
+
    //FUNCTION TO GET THE FORUM (ALL COMMENTARIES ABOUT THE EVENT):
    const getAllCommentaries = async () => {         
     try {
@@ -33,21 +34,22 @@ function Forum() {
     }
   }
 
-//!LOADING SYSTEM:
+//LOADING SYSTEM:
 if(!allCommentaries){ 
   return (
     <div className="loadingRing" >
-        <h2>Loading...</h2>
-        <RingLoader color="#C83B30" size="10rem" />
-      </div>
+      <h2>Loading...</h2>
+      <RingLoader color="#C83B30" size="10rem" />
+    </div>
   )
 }
 
-//!RENDER VIEW:
+//RENDER VIEW:
   return (
     <div className="forum" >
     <div className="forumSpace" >
       <h2>Event Forum</h2>
+
       {allCommentaries.map((eachCommentary)=>{
         if (eachCommentary.event === id){
           return(
@@ -63,6 +65,7 @@ if(!allCommentaries){
         )
         }        
       })}
+
       {isLoggedIn &&
         <div>
           <button className="forum-btn" onClick={() => setShowForm(!showForm)} > {showForm? "Close" : "Comment"}</button>

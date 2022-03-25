@@ -14,7 +14,7 @@ import Collapse from '@mui/material/Collapse';
 //!MAIN FUNCTION:
 function Observatory() {
 
-  //!CONSTANTS & HOOKS:
+  //CONSTANTS & HOOKS:
   const [showForm, setShowForm] = useState(false)
   const {isLoggedIn} = useContext(LoggedUserContext)
 
@@ -22,29 +22,31 @@ function Observatory() {
     width:"60%"
   }
 
-  //!RENDER VIEW:
+  //RENDER VIEW:
   return (
     <div>
 
     <img src={observatoryLettersImg} alt="Logo" width="500rem"/>
+
     <div>
       <div className="observatory" >        
         <div>
           <img src={observatoryImg} alt="Logo" width="900rem"/>
         </div>        
       
-        <div>
-          <div className="observatoryAddressCard" >
+      <div>
+        <div className="observatoryAddressCard" >
             <h2>Iron Observatory</h2>
             <div className="addressAndPhone" >
-            <div className="address" >
-              <img src={addressIcon} height="5%" width="5%" alt="addressIcon" />
-              <p style={paragraph}>Avenida del Monte, s/n</p>
-            </div>
-            <div className="phoneContact">
-              <img src={phoneIcon} height="5%" width="5%" alt="phoneIcon" />
-              <p style={paragraph}>Phone: +34 916 305 555</p>
-            </div>
+              <div className="address" >
+                <img src={addressIcon} height="5%" width="5%" alt="addressIcon" />
+                <p style={paragraph}>Avenida del Monte, s/n</p>
+              </div>
+
+              <div className="phoneContact">
+                <img src={phoneIcon} height="5%" width="5%" alt="phoneIcon" />
+                <p style={paragraph}>Phone: +34 916 305 555</p>
+              </div>
             </div>             
           </div>
 
@@ -59,23 +61,24 @@ function Observatory() {
           <p>Visits available every Thursday, Friday & Saturday</p>
           <p>Three time slots available: 21.30 - 22.30 - 23.30 H </p>            
         </div>
+
         {isLoggedIn &&
           <div>
             <button className="formBtn" onClick={() => setShowForm(!showForm)} > {showForm? "Not yet" : "Book your visit"}</button>
             <Collapse in={showForm} > <Booking /> </Collapse>                   
           </div>
         }
+
         {!isLoggedIn &&
           <NavLink to="/login"> <button className="toLog-toSignup-btn"> Please login to booking your visit </button></NavLink>
-        }        
+        }     
+
       </div>
     </div>
     
-    <div>
-      
+    <div>      
       <h1>Contact us by email </h1>
-      <a href="mailto:info@ironobservatory.com"> <img src={emailIcon} width="10%" alt="emailIcon" /> </a>
-      
+      <a href="mailto:info@ironobservatory.com"> <img src={emailIcon} width="10%" alt="emailIcon" /> </a>      
     </div>
     </div>
   )

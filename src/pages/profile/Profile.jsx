@@ -1,8 +1,8 @@
 //!IMPORTS:
-import ProfileSideBar from "../../components/ProfileSideBar"
+import ProfileSideBar from "../../components/ProfileSideBar";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"
-import {getProfileService} from "../../services/profile.services"
+import { useNavigate } from "react-router-dom";
+import {getProfileService} from "../../services/profile.services";
 import RingLoader from "react-spinners/RingLoader";
 
 //!MAIN FUNCTION:
@@ -65,7 +65,6 @@ function Profile() {
             </div>                    
           </div>        
         </div>
-
        </div>
     </div>    
   )

@@ -1,7 +1,11 @@
+//!CONTEXT FOR USECONTEXT HOOK WITH USER LOGGIN:
+
 import { createContext, useState } from "react";
 
+//CREATE CONTEXT:
 const LoggedUserContext = createContext();
 
+//CREATE WRAPPER FUNCTION:
 function LoggedUserWrapper (props){
 
     const [isLoggedIn, setIsLoggedIn] = useState(false)

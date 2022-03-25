@@ -1,12 +1,12 @@
 //!IMPORTS:
 import { useState } from "react";
-import {addNewCommentaryService} from "../services/forum.services.js"
-import {useParams, useNavigate } from "react-router-dom"
+import {addNewCommentaryService} from "../services/forum.services.js";
+import {useParams, useNavigate } from "react-router-dom";
 
 //!MAIN FUNCTION:
 function AddCommentary(props) {
 
-  //!CONSTANTS & HOOKS:
+  //CONSTANTS & HOOKS:
   const [text, setText] = useState("")    
   const navigate = useNavigate()
   const {getAllCommentaries} = props
@@ -31,13 +31,12 @@ function AddCommentary(props) {
         }    
       }
       
-  //!RENDER VIEW:      
+  //RENDER VIEW:      
   return (
     <div className="addCommentaryBox">
         <form onSubmit={handleSubmit} className="addCommentaryArea" >
 
             <textarea name="text" cols="60" rows="5" value={text} onChange={handleText}></textarea>
-
             <button className="formBtn" >Comment</button>
 
         </form>
