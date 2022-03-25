@@ -1,41 +1,44 @@
-//IMPORTS:
+//!IMPORTS:
 import './App.css';
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
-import {verifyService} from "./services/auth.services"
-import Home from "./pages/Home"
-import Observatory from "./pages/Observatory"
-import Gallery from "./pages/Gallery"
-import PicOfTheDay from "./pages/PicOfTheDay"
-import AstronomicalEvents from "./pages/AstronomicalEvents"
-import AstronomicalEventsDetails from "./pages/AstronomicalEventsDetails"
-import AstronomicalEventsEdit from "./pages/AstronomicalEventsEdit"
-import Signup from "./pages/auth/Signup"
-import Login from "./pages/auth/Login.jsx"
-import Profile from "./pages/profile/Profile.jsx"
-import UpdateAccount from "./pages/profile/UpdateAccount.jsx"
-import DeleteAccount from "./pages/profile/DeleteAccount.jsx"
-import MyBookings from "./pages/profile/MyBookings.jsx"
-import Admin from "./pages/admin/Admin.jsx"
-import AllBookings from "./pages/admin/AllBookings.jsx"
-import NotFound from "./pages/Errors/NotFound"
-import Error from "./pages/Errors/Error.jsx"
-import Navbar from "./components/Navbar"
-import Footer from "./components/Footer"
+import {verifyService} from "./services/auth.services";
+import Home from "./pages/Home";
+import Observatory from "./pages/Observatory";
+import Gallery from "./pages/Gallery";
+import PicOfTheDay from "./pages/PicOfTheDay";
+import AstronomicalEvents from "./pages/AstronomicalEvents";
+import AstronomicalEventsDetails from "./pages/AstronomicalEventsDetails";
+import AstronomicalEventsEdit from "./pages/AstronomicalEventsEdit";
+import Signup from "./pages/auth/Signup";
+import Login from "./pages/auth/Login.jsx";
+import Profile from "./pages/profile/Profile.jsx";
+import UpdateAccount from "./pages/profile/UpdateAccount.jsx";
+import DeleteAccount from "./pages/profile/DeleteAccount.jsx";
+import MyBookings from "./pages/profile/MyBookings.jsx";
+import Admin from "./pages/admin/Admin.jsx";
+import AllBookings from "./pages/admin/AllBookings.jsx";
+import NotFound from "./pages/Errors/NotFound";
+import Error from "./pages/Errors/Error.jsx";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import {LoggedUserContext} from "./context/loggedUser.context";
 
-import {LoggedUserContext} from "./context/loggedUser.context"
 
+//!MAIN FUNCTION:
 function App() {
 
-  //const [isLoggedIn, setIsLoggedIn] = useState(false)
+  //CONSTANTS & HOOKS:
   const [userRole, setUserRole] = useState(null)
-
   const {isLoggedIn, setIsLoggedIn} = useContext(LoggedUserContext)
 
   useEffect(()=>{ 
     verifyUser() 
   }, [])
 
+  //!INTERNAL FUNCTIONS:
+  
+  //FUNCTION TO VERIFY USER & ADMIN ROLE:
   const verifyUser = async () => {
     try{
       const response = await verifyService();
@@ -47,6 +50,7 @@ function App() {
     }    
   }  
   
+  //RENDER VIEW:
   return (
     <div className="App" >
 
