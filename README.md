@@ -43,34 +43,35 @@ I
 File with general routes organization.
 
 #### auth.routes
-| HTTP Method | URL                         | Request Body                 | Success status | Error Status | Description                                                  |
+| HTTP Method | URL                         | Request Body / Params        | Success status | Error Status | Description                                                  |
 | ----------- | --------------------------- | ---------------------------- | -------------- | ------------ | ------------------------------------------------------------ |
 | POST        | "/auth/signup"                | {username, email, password, city, country}      | 200/201            | 400          | Checks if fields not empty or any not meet requirements
 | POST        | "/auth/login"                 | {email, password}         | 200            | 400/401          | Checks if fields not empty / Check if password is wrong or if email is not registered
 | GET        | "/auth/verify"                |       | 200            |           | 
 #### events.routes
-| HTTP Method | URL                         | Request Body                 | Success status | Error Status | Description                                                  |
+| HTTP Method | URL                         | Request Body / Params        | Success status | Error Status | Description                                                  |
 | ----------- | --------------------------- | ---------------------------- | -------------- | ------------ | ------------------------------------------------------------ |
+| GET        | "/astronomical-events/:id"                |       | 200            |           | 
 #### gallery.routes
-| HTTP Method | URL                         | Request Body                 | Success status | Error Status | Description                                                  |
+| HTTP Method | URL                         | Request Body / Params        | Success status | Error Status | Description                                                  |
 | ----------- | --------------------------- | ---------------------------- | -------------- | ------------ | ------------------------------------------------------------ |
 #### auth.routes
-| HTTP Method | URL                         | Request Body                 | Success status | Error Status | Description                                                  |
+| HTTP Method | URL                         | Request Body / Params        | Success status | Error Status | Description                                                  |
 | ----------- | --------------------------- | ---------------------------- | -------------- | ------------ | ------------------------------------------------------------ |
 #### observatory.routes
-| HTTP Method | URL                         | Request Body                 | Success status | Error Status | Description                                                  |
+| HTTP Method | URL                         | Request Body / Params        | Success status | Error Status | Description                                                  |
 | ----------- | --------------------------- | ---------------------------- | -------------- | ------------ | ------------------------------------------------------------ |
 #### pic-day.routes
-| HTTP Method | URL                         | Request Body                 | Success status | Error Status | Description                                                  |
+| HTTP Method | URL                         | Request Body / Params        | Success status | Error Status | Description                                                  |
 | ----------- | --------------------------- | ---------------------------- | -------------- | ------------ | ------------------------------------------------------------ |
 #### profile.routes
-| HTTP Method | URL                         | Request Body                 | Success status | Error Status | Description                                                  |
+| HTTP Method | URL                         | Request Body / Params        | Success status | Error Status | Description                                                  |
 | ----------- | --------------------------- | ---------------------------- | -------------- | ------------ | ------------------------------------------------------------ |
 #### send-email.routes
-| HTTP Method | URL                         | Request Body                 | Success status | Error Status | Description                                                  |
+| HTTP Method | URL                         | Request Body / Params        | Success status | Error Status | Description                                                  |
 | ----------- | --------------------------- | ---------------------------- | -------------- | ------------ | ------------------------------------------------------------ |
 #### uploader.routes
-| HTTP Method | URL                         | Request Body                 | Success status | Error Status | Description                                                  |
+| HTTP Method | URL                         | Request Body / Params        | Success status | Error Status | Description                                                  |
 | ----------- | --------------------------- | ---------------------------- | -------------- | ------------ | ------------------------------------------------------------ |
 
 
