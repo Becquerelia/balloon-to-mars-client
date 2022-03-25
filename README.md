@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Balloon to Mars
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Balloon to Mars is an app aimed at disseminating knowledge of astronomy and astronomical events.
 
-## Available Scripts
+You can visit it at: https://balloontomars.netlify.app/
 
-In the project directory, you can run:
+## Description:
 
-### `npm start`
+In 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## User stories:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Astronomical Event List**: Users can see all astronomical events.
+- **Forum**: Users can see the forum of each astronomical event.
+- **Image Gallery**: Users can see all images from gallery.
+- **Pic of the Day**: Users can see the pic of the day.
+- **Observatory**: Users can see the observatory section (map, ubication, visit hours & contact by email).
+- **SignUp**: Users can sign up in the app to become a members.
+- **LogIn**: Signed up users can log in to the app.
+- **Profile**: Logged in users can access to their profile and check their user info & bookings, as well as edit or delete the account.
+- **Booking**: Logged in users can make a booking to visit the observatory on the selected day.
+- **Share an Astronomical Event**: Logged in users can share an astronomical event with Balloon to Mars community.
+- **Edit/Delete an Astronomical Event**: Logged in users can updated or delete an astronomical event already created.
+- **Participate in the Forum**: Logged users can participate in the forum of each astronomical event by leaving a comment.
+- **Log out**: Logged users can log out.
+- **Admin**: Admin-user can see all bookings done by members to visit the observatory.
+- **404**: Users will see a custom 404 (Not Founded) error page if they try to access a path that doesn't exist.
+- **Error**: Users will see a custom 500 (Server Error) error page if there are any internal problem with some path.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Models:
 
-### `npm run build`
+In 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Backlog:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+In 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Links:
 
-### `npm run eject`
+### Netlify Deployment:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+https://balloontomars.netlify.app/
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### GitHub Server:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+https://github.com/Becquerelia/balloon-to-mars-server
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### GitHub Client:
 
-## Learn More
+https://github.com/Becquerelia/balloon-to-mars-client
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Slides:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+https://docs.google.com/presentation/d/1gMIpbOQiXyeNd0KfJprVsu6KggGSqswdU9McBgoAry4/edit?usp=sharing
