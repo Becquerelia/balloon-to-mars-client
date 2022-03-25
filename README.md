@@ -29,10 +29,17 @@ Moreover, users can register to be members of the platform and be able to book a
 - **404**: Users will see a custom 404 (Not Founded) error page if they try to access a path that doesn't exist.
 - **Error**: Users will see a custom 500 (Server Error) error page if there are any internal problem with some path.
 
+## Backlog:
 
-## Models:
+I 
 
-### User Model:
+## Data Structure:
+
+### Routes:
+
+### Models:
+
+#### User Model:
 - username: {String, unique & required}
 - email: {String, unique & required}
 - password: String
@@ -42,7 +49,7 @@ Moreover, users can register to be members of the platform and be able to book a
 - role: {String, enum [] & default}
 - timestamps: true.
 
-### Event Model:
+#### Event Model:
 - title: {String & required}
 - description: {String & required}
 - image: {String, enum [] & default}
@@ -50,7 +57,7 @@ Moreover, users can register to be members of the platform and be able to book a
 - hour: String
 - visibility: String
 
-### Booking Model:
+#### Booking Model:
 - user: {ObjectId, ref:User}
 - firstName: String
 - lastName: String
@@ -59,12 +66,11 @@ Moreover, users can register to be members of the platform and be able to book a
 - numberOfPersons: {String & enum[]}
 - price: Number
 
-### Commentary Model:
+#### Commentary Model:
 - user: {ObjectId, ref:User}
 - event: {ObjectId, ref:Event}
 - text {String & required}
 
-## Backlog:
 
 ### Pages:
 - Admin
@@ -99,17 +105,13 @@ Moreover, users can register to be members of the platform and be able to book a
 - CheckoutForm
 - PaymentIntent
 
-## Backlog:
+### Services:
 
-In 
-
-## Other Files:
-
-### API Services (from Server side):
+#### API Services (from Server side):
 - gallery.services
 - pic-day.services
 
-### BE Services (from Client side):
+#### BE Services (from Client side):
 - auth.services
 - booking.services
 - events.services
