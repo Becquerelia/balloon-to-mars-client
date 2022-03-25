@@ -46,6 +46,8 @@ File with general routes organization.
 | HTTP Method | URL                         | Request Body                 | Success status | Error Status | Description                                                  |
 | ----------- | --------------------------- | ---------------------------- | -------------- | ------------ | ------------------------------------------------------------ |
 | POST        | "/auth/signup"                | {username, email, password, city, country}      | 200/201            | 400          | Checks if fields not empty or any not meet requirements
+| POST        | "/auth/login"                 | {email, password}         | 200            | 400/401          | Checks if fields not empty / Check if password is wrong or if email is not registered
+| GET        | "/auth/verify"                |       | 200            |           | 
 #### events.routes
 | HTTP Method | URL                         | Request Body                 | Success status | Error Status | Description                                                  |
 | ----------- | --------------------------- | ---------------------------- | -------------- | ------------ | ------------------------------------------------------------ |
