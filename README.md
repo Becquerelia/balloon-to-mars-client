@@ -51,7 +51,7 @@ File with general routes organization.
 #### events.routes
 | HTTP Method | URL                         | Request Body / Params        | Success status | Error Status | Description                                                  |
 | ----------- | --------------------------- | ---------------------------- | -------------- | ------------ | ------------------------------------------------------------ |
-| GET        | "/astronomical-events/:id"                |       | 200            |           | 
+| GET        | "/astronomical-events/:id"                |   {id}    | 200            |           | 
 #### gallery.routes
 | HTTP Method | URL                         | Request Body / Params        | Success status | Error Status | Description                                                  |
 | ----------- | --------------------------- | ---------------------------- | -------------- | ------------ | ------------------------------------------------------------ |
